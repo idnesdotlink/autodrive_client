@@ -1,0 +1,13 @@
+@import "~@angular/material/theming";
+@include mat-core();
+$autodrive-light-primary: mat-palette($mat-orange, 400);
+$autodrive-light-accent:  mat-palette($mat-orange, 800);
+
+$autodrive-dark-primary: mat-palette($mat-orange, 400);
+$autodrive-dark-accent:  mat-palette($mat-orange, 800);
+
+$autodrive-light-theme: mat-light-theme($autodrive-light-primary, $autodrive-light-accent);
+$autodrive-dark-theme: mat-dark-theme($autodrive-dark-primary, $autodrive-dark-accent);
+
+@include angular-material-theme($autodrive-light-theme);
+@include angular-material-theme($autodrive-dark-theme);

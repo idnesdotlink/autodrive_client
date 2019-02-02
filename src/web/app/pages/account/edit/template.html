@@ -1,0 +1,57 @@
+<page-standard (clickBack)="clickBack()">
+  <box-padding padding="30">
+    <form [formGroup]="accountForm">
+      <div class="example-container">
+      <mat-form-field>
+      <input
+      matInput
+      autocomplete="off"
+      spellcheck="false"
+      maxlength="64"
+      formControlName="name"
+      placeholder="Nama">
+      <mat-hint align="end">{{accountForm.get('name').value?.length || 0}}/64</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+      <input
+      matInput
+      autocomplete="off"
+      spellcheck="false"
+      maxlength="16"
+      type="password"
+      formControlName="oldpassword"
+      placeholder="Old Password">
+      <mat-hint align="end">{{accountForm.get('oldpassword').value?.length || 0}}/16</mat-hint>
+      <mat-error *ngIf="accountForm.hasError('required', 'oldpassword')">Please enter your old password</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+      <input
+      matInput
+      autocomplete="off"
+      spellcheck="false"
+      maxlength="16"
+      type="password"
+      formControlName="password"
+      placeholder="New Password">
+      <mat-hint align="end">{{accountForm.get('password').value?.length || 0}}/16</mat-hint>
+      <mat-error *ngIf="accountForm.hasError('required', 'password')">Please enter your new password</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+      <input
+      matInput
+      autocomplete="off"
+      spellcheck="false"
+      maxlength="16"
+      type="password"
+      [errorStateMatcher]="matcher2"
+      formControlName="verifyPassword"
+      placeholder="Verify Password">
+      <mat-hint align="end">{{accountForm.get('verifyPassword').value?.length || 0}}/16</mat-hint>
+      <mat-error *ngIf="accountForm.hasError('passwordsDoNotMatch')">Not Same</mat-error>
+      </mat-form-field>
+
+      </div>
+      <button mat-button mat-raised-button (click)="save()">Save</button>
+    </form>
+  </box-padding>
+</page-standard>

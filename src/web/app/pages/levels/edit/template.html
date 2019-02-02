@@ -1,0 +1,47 @@
+<page-standard (clickBack)="clickBack()">
+    <box-padding padding="30">
+      <form *ngIf="level">
+        <mat-form-field>
+        <input
+          [(ngModel)]="level.name"
+          autocomplete="off"
+          spellcheck="false"
+          matInput
+          placeholder="Name"
+          name="level.name">
+        </mat-form-field>
+        </form>
+        <color-picker></color-picker>
+        <h3>Group Percentage</h3>
+        <mat-slider
+          class="example-margin"
+          [max]="100"
+          [min]="1"
+          [step]="1"
+          [thumbLabel]="true"
+          [tickInterval]="1"
+          [(ngModel)]="level.bonus_percentage">
+        </mat-slider>
+        <h3>Area Percentage</h3>
+        <mat-slider
+          class="example-margin"
+          [max]="100"
+          [min]="1"
+          [step]="1"
+          [thumbLabel]="true"
+          [tickInterval]="1"
+          [(ngModel)]="level.bonus_percentage">
+        </mat-slider>
+        <h3>National Percentage</h3>
+        <mat-slider
+          class="example-margin"
+          [max]="100"
+          [min]="1"
+          [step]="1"
+          [thumbLabel]="true"
+          [tickInterval]="1"
+          [(ngModel)]="level.bonus_percentage">
+        </mat-slider>
+      <button mat-button (click)="save()">Save</button>
+    </box-padding>
+  </page-standard>

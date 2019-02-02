@@ -1,0 +1,11 @@
+.fill-remaining {
+  flex: 1;
+}
+
+:host {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: black
+}

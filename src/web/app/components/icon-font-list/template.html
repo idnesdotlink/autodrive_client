@@ -1,0 +1,5 @@
+<mat-grid-list cols="8" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let icon of icons">
+    <mat-icon (click)="click(icon[1])" matTooltip="{{icon[0]}}">{{icon[1]}}</mat-icon>
+  </mat-grid-tile>
+</mat-grid-list>

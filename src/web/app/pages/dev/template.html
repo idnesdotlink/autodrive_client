@@ -1,0 +1,22 @@
+<page-standard (clickBack)="clickBack($event)">
+  <mat-tab-group
+    class="mat-tab-group-full"
+    mat-align-tabs="center"
+    style="height: 100%; width: 100%; display: flex;">
+    <mat-tab>
+      <ng-template mat-tab-label>Icon Helper</ng-template>
+      <box-padding>
+        <div style="overflow-y: auto; height: 100%; width: 100%;">
+          <icon-font-list></icon-font-list>
+        </div>
+      </box-padding>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Log</ng-template>
+      [Data Downline]
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Server Log</ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</page-standard>

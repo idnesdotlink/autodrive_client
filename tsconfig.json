@@ -1,0 +1,100 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "./dist/electron",
+    "paths": {
+      "@environtment": [
+        "src/web/environtment.ts"
+      ],
+      "@configs/*": [
+        "src/web/app/configs/*"
+      ],
+      "@configs": [
+        "src/web/app/configs"
+      ],
+      "@animations/*": [
+        "src/web/app/animations/*"
+      ],
+      "@animations": [
+        "src/web/app/animations"
+      ],
+      "@mock/*": [
+        "src/web/app/mock/*"
+      ],
+      "@mock": [
+        "src/web/app/mock"
+      ],
+      "@modules/*": [
+        "src/web/app/modules/*"
+      ],
+      "@modules": [
+        "src/web/app/modules"
+      ],
+      "@directives/*": [
+        "src/web/app/directives/*"
+      ],
+      "@directives": [
+        "src/web/app/directives"
+      ],
+      "@services/*": [
+        "src/web/app/services/*"
+      ],
+      "@services": [
+        "src/web/app/services"
+      ],
+      "@interfaces/*": [
+        "src/web/app/interfaces/*"
+      ],
+      "@interfaces": [
+        "src/web/app/interfaces"
+      ],
+      "@pages/*": [
+        "src/web/app/pages/*"
+      ],
+      "@pages": [
+        "src/web/app/pages"
+      ],
+      "@components/*": [
+        "src/web/app/components/*"
+      ],
+      "@components": [
+        "src/web/app/components"
+      ],
+      "@guards/*": [
+        "src/web/app/guards/*"
+      ],
+      "@guards": [
+        "src/web/app/guards"
+      ],
+      "@helpers/*": [
+        "src/web/app/helpers/*"
+      ],
+      "@helpers": [
+        "src/web/app/helpers"
+      ]
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "es5",
+    "allowJs": true,
+    "typeRoots": [
+      "./typings",
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
+}

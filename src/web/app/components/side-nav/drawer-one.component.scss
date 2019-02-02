@@ -1,0 +1,29 @@
+.drawer-one {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+.drawer-one::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+
+.drawer-one::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.26);
+}
+.drawer-one .mat-accordion .mat-expansion-panel:last-of-type {
+  border-radius: 0 !important;
+}
+.drawer-one .mat-accordion .mat-expansion-panel:first-of-type {
+  border-radius: 0 !important;
+}
+.drawer-one .mat-expansion-panel {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.drawer-one .mat-expansion-panel-spacing {
+  margin: 0 !important;
+}
+.mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 0 !important;
+}

@@ -1,0 +1,27 @@
+<box-padding padding="20" background="black">
+  <div style="color: white;">
+    <form [formGroup]="configForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <mat-form-field>
+        <input
+          formControlName="url"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          matInput
+          placeholder="API URL">
+      </mat-form-field>
+      <mat-form-field>
+          <input
+            formControlName="key"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            matInput
+            placeholder="API KEY">
+      </mat-form-field>
+      <button mat-button mat-stroked-button>Install</button>
+    </form>
+  </div>
+</box-padding>

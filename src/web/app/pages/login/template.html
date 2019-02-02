@@ -1,0 +1,46 @@
+<div class="logo-box">
+  <mat-card class="login-box">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <mat-card-content>
+        <div><logo-text class="logo-text" fill="orange"></logo-text></div>
+        <div>
+        <mat-form-field>
+          <input
+            formControlName="username"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            matInput
+            placeholder="Nama">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Enter your password"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            [type]="hide ? 'password' : 'text'">
+          <mat-icon class="cursor-pointer" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+      </div>
+      </mat-card-content>
+      <mat-card-actions>
+          <button
+          mat-raised-button
+          mat-button
+          color="accent">
+            Login
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+<div class="logo">
+  <logo-line style="height: 100vh; width: 100vw;"></logo-line>
+</div>

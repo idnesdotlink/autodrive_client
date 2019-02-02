@@ -1,0 +1,27 @@
+.outer {
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-box {
+  height: 100vh;
+  width: 600px;
+  background-image: url("static/autodrive.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-box {
+  // background-color: rgba(255,255,255,.8);
+  background-color: rgba(0,0,0,.7);
+  border: 2px solid rgba(255,255,255,.3);
+}
+.wow {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+productName: Autodrive
+appId: com.autodrive.client
+copyright: Copyright © 2019 idnesdotlink
+directories:
+  buildResources: build
+  output: dist/output
+buildDependenciesFromSource: false
+files:
+  - filter:
+      - dist/electron/**/*
+compression: store
+mac:
+  icon: icons/icon.icns
+win:
+  icon: icons/icon.ico
+linux:
+  category: Utility
+  target: AppImage
+  executableName: autodrive

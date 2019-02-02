@@ -1,0 +1,14 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    mode="push"
+    [(opened)]="opened">
+    Sidenav content
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-bar [navs]="appNav" (logo)="opened = !opened"></app-bar>
+    <mat-drawer-container>
+      <router-outlet></router-outlet>
+    </mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

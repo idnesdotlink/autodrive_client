@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+}
+:host svg {
+  align-self: center;
+}
+:host .text {
+  fill: white;
+}

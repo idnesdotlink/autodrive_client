@@ -1,0 +1,118 @@
+html, body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+app-root {
+  padding: 0;
+  margin: 0;
+}
+
+app-root .placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: black;
+}
+
+app-root > .placeholder > svg {
+  display: block;
+}
+
+.psg-psg > .mat-horizontal-content-container {
+  // flex: 1;
+  flex: 1;
+  padding: 0;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 52px !important;
+}
+
+.wishes .mat-checkbox .mat-checkbox-ripple {
+  width: 28px !important;
+  height: 28px !important;
+  left: calc(50% - 14px) !important;
+  top: calc(50% - 14px) !important;
+}
+
+.wishes .mat-checkbox-inner-container {
+  width: 12px;
+  height: 12px;
+}
+
+.wishes .mat-column-select {
+  overflow: initial;
+}
+
+filter-box .mat-checkbox .mat-checkbox-ripple {
+  width: 28px !important;
+  height: 28px !important;
+  left: calc(50% - 14px) !important;
+  top: calc(50% - 14px) !important;
+}
+
+filter-box .mat-checkbox-inner-container {
+  width: 12px;
+  height: 12px;
+}
+
+filter-box .mat-checkbox-label {
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+app-nav .mat-button-wrapper {
+  line-height: 32px;
+}
+
+page-standard .page-standard_boxbar .mat-button-wrapper  {
+  line-height: 24px;
+}
+
+page-standard .page-standard_boxbar .mat-button-wrapper mat-icon  {
+  vertical-align: baseline;
+}
+
+.color-picker {
+  border: 0 none !important;
+}
+
+.mat-horizontal-stepper-content {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.mat-tab-body-wrapper {
+  flex: 1;
+}
+
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: orange;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, .9);
+}
+/*
+
+  *::-webkit-scrollbar-button { }
+  ::-webkit-scrollbar-track-piece { }
+  ::-webkit-scrollbar-corner { }
+  ::-webkit-resizer { }
+  .cdk-overlay-pane.ngx-contextmenu {
+    background-color: white;
+}
+*/

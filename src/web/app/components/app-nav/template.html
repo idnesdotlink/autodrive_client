@@ -1,0 +1,26 @@
+<nav>
+<ng-template ngFor let-nav [ngForOf]="navs">
+  <button
+    mat-icon-button
+    [matTooltip]="nav.tooltip"
+    routerLinkActive="active-nav"
+    [style.background-color]="nav.backgroundColor"
+    [style.color]="nav.color"
+    *ngIf="nav.routerLink"
+    [routerLink]="nav.routerLink"
+    mat-button>
+    <mat-icon>{{ nav.icon }}</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    [matTooltip]="nav.tooltip"
+    routerLinkActive="active-nav"
+    [style.background-color]="nav.backgroundColor"
+    [style.color]="nav.color"
+    *ngIf="nav.click"
+    (click)="nav.click()"
+    mat-button>
+    <mat-icon>{{ nav.icon() }}</mat-icon>
+  </button>
+</ng-template>
+</nav>
