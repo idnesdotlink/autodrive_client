@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core'
 
-import {Level} from '@interfaces'
+import {Level} from '@interfaces/level'
 import {LevelsService} from '@services/levels.service'
 import {Router} from '@angular/router'
 

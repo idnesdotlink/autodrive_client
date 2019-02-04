@@ -5,7 +5,7 @@ import {BehaviorSubject, Observable} from 'rxjs'
 import {map, first} from 'rxjs/operators'
 import jwtDecode from 'jwt-decode'
 
-import {User} from '@interfaces'
+import {User} from '@interfaces/user'
 import {config} from '@configs'
 
 interface AuthenticationResponse {

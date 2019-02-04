@@ -1,16 +1,43 @@
-import {Component, Input, Output, OnChanges, EventEmitter} from '@angular/core'
+import {Component, Input, forwardRef} from '@angular/core'
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
 
 @Component({
   selector: 'color-picker',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ColorPickerComponent),
+      multi: true
+    }
+  ]
 })
-export class ColorPickerComponent implements OnChanges {
-  @Input() public color: string = '#ffffff';
+export class ColorPickerComponent implements ControlValueAccessor {
 
-  @Output() change: EventEmitter<any> = new EventEmitter();
-
-  ngOnChanges():void {
-    this.change.emit(this.color);
+  constructor() {
   }
+
+  @Input() public _color: string;
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
+  get color() {
+    return this._color
+  }
+
+  set color(value) {
+    this._color = value
+    this.onChange(value);
+    this.onTouched();
+  }
+
+  writeValue(value){
+    if (value === undefined || value === '') value = '#ffffff'
+    this.color = value
+  }
+
+  registerOnChange(fn) {this.onChange = fn;}
+
+  registerOnTouched() {}
 }

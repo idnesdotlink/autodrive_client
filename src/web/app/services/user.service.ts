@@ -1,8 +1,8 @@
 ﻿import {Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
-import env from '../../environtment';
+import env from '@environtment';
 
-import {User} from '@interfaces'
+import {User} from '@interfaces/user'
 
 @Injectable()
 export class UserService {

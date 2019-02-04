@@ -11,7 +11,7 @@ import {AuthenticationInterceptor} from '@services/authentication.interceptor';
 // components
 import {AppRootComponent} from '@components/app-root'
 import { InstallService } from '@services/install.service';
-
+import {CacheService} from '@services/cache.service'
 @NgModule({
   imports: [
     // service-worker
@@ -28,6 +28,7 @@ import { InstallService } from '@services/install.service';
   ],
   providers: [
     InstallService,
+    CacheService,
     AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,

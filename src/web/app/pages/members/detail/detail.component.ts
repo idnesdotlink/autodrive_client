@@ -2,7 +2,7 @@ import {Component, OnInit, Input, OnDestroy} from '@angular/core'
 import {ActivatedRoute, Router} from '@angular/router'
 import {Location} from '@angular/common'
 
-// import { Member } from '@interfaces';
+// import {Member} from '@interfaces/member';
 import {MembersService} from '@services/members.service'
 import {AuthenticationService} from '@services/authentication.service'
 

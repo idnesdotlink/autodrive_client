@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 
 import {Observable} from 'rxjs'
 
-import {Level} from '@interfaces'
+import {Level} from '@interfaces/level'
 
 import {config} from '@configs'
 

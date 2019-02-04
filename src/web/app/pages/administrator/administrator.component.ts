@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {first} from 'rxjs/operators'
 
-import {User} from '@interfaces'
+import {User} from '@interfaces/user'
 import {UserService} from '@services/user.service'
 
 @Component({

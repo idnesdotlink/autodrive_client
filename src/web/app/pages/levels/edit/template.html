@@ -1,47 +1,44 @@
 <page-standard (clickBack)="clickBack()">
     <box-padding padding="30">
-      <form *ngIf="level">
+      <form *ngIf="level" [formGroup]="editGroup" (ngSubmit)="onSubmit()" autocomplete="off">
         <mat-form-field>
         <input
-          [(ngModel)]="level.name"
           autocomplete="off"
           spellcheck="false"
           matInput
           placeholder="Name"
-          name="level.name">
+          name="level.name"
+          formControlName="name">
         </mat-form-field>
-        </form>
-        <color-picker></color-picker>
+        <color-picker formControlName="color"></color-picker>
         <h3>Group Percentage</h3>
         <mat-slider
-          class="example-margin"
-          [max]="100"
-          [min]="1"
-          [step]="1"
+          [max]="5"
+          [min]="0"
+          [step]=".1"
           [thumbLabel]="true"
-          [tickInterval]="1"
-          [(ngModel)]="level.bonus_percentage">
+          [tickInterval]=".1"
+          formControlName="group_percentage">
         </mat-slider>
         <h3>Area Percentage</h3>
         <mat-slider
-          class="example-margin"
-          [max]="100"
-          [min]="1"
-          [step]="1"
+          [max]="5"
+          [min]="0"
+          [step]=".1"
           [thumbLabel]="true"
-          [tickInterval]="1"
-          [(ngModel)]="level.bonus_percentage">
+          [tickInterval]=".1"
+          formControlName="area_percentage">
         </mat-slider>
         <h3>National Percentage</h3>
         <mat-slider
-          class="example-margin"
-          [max]="100"
-          [min]="1"
-          [step]="1"
+          [max]="5"
+          [min]="0"
+          [step]=".1"
           [thumbLabel]="true"
-          [tickInterval]="1"
-          [(ngModel)]="level.bonus_percentage">
+          [tickInterval]=".1"
+          formControlName="national_percentage">
         </mat-slider>
-      <button mat-button (click)="save()">Save</button>
+      <button mat-button mat-stroked-button>Save</button>
+        </form>
     </box-padding>
   </page-standard>

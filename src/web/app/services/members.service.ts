@@ -36,7 +36,6 @@ export class MembersService {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'my-auth-token'
   });
     return this.http.post(`${this.apiUrl}/members`, {
 

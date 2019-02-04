@@ -4,7 +4,7 @@ import {Location} from '@angular/common'
 import {MatDialog} from '@angular/material'
 import {Observable} from 'rxjs'
 
-import {Level} from '@interfaces'
+import {Level} from '@interfaces/level'
 import {LevelsService} from '@services/levels.service'
 import {ConfirmDialog} from '@components/confirm-dialog'
 
