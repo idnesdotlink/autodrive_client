@@ -54,7 +54,7 @@ let spinner = ora();
  * Linux
  */
 spinner.start('build linux icon');
-icongen(path.join(iconSrcDir, 'box.1.svg'), iconsPath, linux)
+icongen(path.join(iconSrcDir, 'autodrive.svg'), iconsPath, linux)
 .then((results) => {
   try {
   each(linux.favicon.sizes, (size) => {

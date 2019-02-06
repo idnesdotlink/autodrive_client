@@ -2,14 +2,8 @@
   border-radius: 0;
   width: 32px;
   height: 32px;
-  line-height: 32px;
-}
-
-:host .mat-icon-button {
-  border-radius: 0;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
+  line-height: 24px;
+  overflow: hidden;
 }
 :host .active-nav {
   color: red;

@@ -4,13 +4,11 @@ import rules from './rules';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import cheerio from 'cheerio'
 
 import { srcPath, distPath, isWeb, isDev, rootPath, isHMR } from '@compiler/common/constant';
 import { alias } from '@compiler/common/alias';
 import base from '@compiler/common/base';
-import { htmlwebpack, contextreplacement, webpackdefine, minicssextract } from '@compiler/plugins';
+import { htmlwebpack, contextreplacement, webpackdefine, minicssextract, removeTag } from '@compiler/plugins';
 
 const electronDistPath = path.join(distPath, 'electron');
 const webSrcPath = path.join(srcPath, 'web');
@@ -36,24 +34,6 @@ const optimization = {
     new OptimizeCSSAssetsPlugin({})
   ]
 };
-class RemoveTag {
-  apply (compiler) {
-    compiler.hooks.compilation.tap(
-      'remove-tag',
-      (compilation) => {
-        HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
-          'remove-tag',
-          (data, cb) => {
-            const $ = cheerio.load(data.html)
-            $('html').find('script[src="styles.js"]').remove()
-            data.html = $.html();
-            cb(null, data);
-          }
-        )
-      }
-    );
-  }
-}
 
 let config = {
   entry: {
@@ -78,7 +58,7 @@ let config = {
   plugins: [
     contextreplacement(webSrcPath),
     htmlwebpack(templateFile),
-    new RemoveTag(),
+    removeTag,
     webpackdefine,
   ],
 }

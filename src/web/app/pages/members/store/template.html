@@ -63,7 +63,7 @@
               </mat-form-field>
             </div>
             <div>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-stroked-button matStepperNext>Next</button>
             </div>
           </form>
         </box-padding>
@@ -98,8 +98,8 @@
               </mat-form-field>
           </div>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-stroked-button matStepperPrevious>Back</button>
+            <button mat-stroked-button matStepperNext>Next</button>
           </div>
         </form>
       </box-padding>
@@ -122,9 +122,9 @@
       <mat-checkbox [(ngModel)]="oktosave">Check me!</mat-checkbox>
       {{ oktosave ? 'ok' : 'no' }}
       <div>
-        <button [disabled]="!oktosave" mat-button mat-icon-button (click)="save()">Simpan</button>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button [disabled]="!oktosave" mat-icon-button (click)="save()">Simpan</button>
+        <button mat-stroked-button matStepperPrevious>Back</button>
+        <button mat-stroked-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
