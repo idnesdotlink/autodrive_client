@@ -15,7 +15,16 @@ const extractScssLoader = extract ? ['style-loader', 'css-loader', sassLoader] :
 const rules = [
   /// EXTRACT CSS START
   {
-    test: /(typeface-(roboto|open-sans)[\/\\]index|material-icons)\.css$/,
+    test: /flag-icon-css[\/\\]flags[\/\\].+\.svg$/,
+    include: nodeModulesPath,
+    use: [
+      {
+        loader: 'svg-url-loader'
+      }
+    ]
+  },
+  {
+    test: /(typeface-(roboto|open-sans)[\/\\]index|material-icons|flag-icon)\.css$/,
     include: nodeModulesPath,
     use: extractCssLoader
   },
@@ -46,6 +55,13 @@ const rules = [
   {
     test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
     parser: { system: true }
+  },
+  {
+    test: /\.(css)$/,
+    include: path.join(webSrcPath, 'app', 'extra'),
+    use: [
+      'raw-loader'
+    ]
   },
   {
     test: /\.(scss|sass)$/,

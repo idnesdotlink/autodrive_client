@@ -1,6 +1,7 @@
 import 'typeface-roboto/index.css'
 import 'typeface-open-sans/index.css'
 import 'material-design-icons/iconfont/material-icons.css'
+import 'flag-icon-css/css/flag-icon.css'
 import '@themes/custom'
 import '@styles/global'
 import '@styles/print'

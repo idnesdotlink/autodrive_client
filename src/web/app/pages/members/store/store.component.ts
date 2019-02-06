@@ -37,6 +37,8 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
   addressSelected: {};
   oktosave: boolean = false;
 
+  pn: string = '';
+
   constructor(
     private _formBuilder: FormBuilder,
     public snackBar: MatSnackBar,
@@ -47,6 +49,13 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.initialize()
+  }
+
+  ngOnDestroy(): void {
+  }
+
+  initialize() {
     this.personalGroup = this._formBuilder.group({
       nama: ['', Validators.required],
       gender: ['L', Validators.required],
@@ -64,9 +73,6 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.addressSelect = map(this.addressSelect, select => this.populate_select(select));
     this.get_administrative_division('provinces');
-  }
-
-  ngOnDestroy(): void {
   }
 
   clickBack() {
@@ -141,7 +147,11 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
   get_text_value() {
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
+    this.av()
+  }
+
+  av(): void {
     forEach(this.addressSelect, (g) => {
       let addressGroup = this.addressGroup;
       let chain1 = addressGroup.controls[g[1]];
@@ -154,7 +164,8 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
           chain2.disable();
           let where = {};
           where[g[2]] = v;
-          if (v !== '') this.get_administrative_division(g[3], where, chain2)
+          if (v === '' || v === null) return
+          this.get_administrative_division(g[3], where, chain2)
         }
       );
 
@@ -167,15 +178,27 @@ export class StoreComponent implements OnInit, AfterViewInit, OnDestroy {
             acc[key] = val
           } else {
             let area = find(this.addressSelect, v => v.formControlName === key).options;
-            acc[key] = find(area, v => v.value === `${val}`).name;
+            if(area) {
+            let x = find(area, v => v.value === `${val}`)
+            if (x)
+            acc[key] = x.name;
+            }
           }
           return acc;
         }, {})
-        console.log(this.addressSelected);
-        console.log(this.addressGroup.valid === true);
       }
     )
   }
 
   save() {}
+
+  reset(stepper) {
+    stepper.reset();
+    this.initialize()
+    this.av()
+  }
+
+  show() {
+    console.log({pn: this.pn})
+  }
 }

@@ -12,6 +12,7 @@ import {DigitOnlyModule} from '@uiowa/digit-only'
 import {NgxBarcodeModule} from 'ngx-barcode'
 import {NgxChartsModule} from '@swimlane/ngx-charts'
 import {QRCodeModule} from 'angularx-qrcode'
+import {InternationalPhoneNumberModule} from '@extra/phone/phone-number.module'
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import {QRCodeModule} from 'angularx-qrcode'
     NgxBarcodeModule,
     NgxChartsModule,
     QRCodeModule,
+    InternationalPhoneNumberModule
   ],
   exports: [
     BaseModule,
@@ -38,7 +40,8 @@ import {QRCodeModule} from 'angularx-qrcode'
     DigitOnlyModule,
     NgxBarcodeModule,
     NgxChartsModule,
-    QRCodeModule
+    QRCodeModule,
+    InternationalPhoneNumberModule
   ]
 })
 export class ThirdPartyModule {}

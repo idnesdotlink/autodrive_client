@@ -82,6 +82,12 @@
       ],
       "@helpers": [
         "src/web/app/helpers"
+      ],
+      "@extra/*": [
+        "src/web/app/extra/*"
+      ],
+      "@extra": [
+        "src/web/app/extra"
       ]
     },
     "resolveJsonModule": true,
