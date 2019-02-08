@@ -5,18 +5,22 @@ import { webSrcPath, isDev, isHMR, nodeModulesPath } from '@compiler/common/cons
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const miniCssExtractLoader = { loader: MiniCssExtractPlugin.loader };
-const sassLoader = { loader: 'sass-loader', options: { implementation: sass, fibers: Fiber } };
+const sassLoader = { loader: 'sass-loader', options: { implementation: sass, fibers: Fiber, sourceMap: true } };
+const resolveUrlLoader = {
+  loader: 'resolve-url-loader'
+}
 
 const extract = false; // (isDev && isHMR);
 
 const extractCssLoader = extract ? ['style-loader', 'css-loader'] : [miniCssExtractLoader, 'css-loader'];
 const extractScssLoader = extract ? ['style-loader', 'css-loader', sassLoader] : [miniCssExtractLoader, 'css-loader', sassLoader];
+const extractScssLoaderResolve = extract ? ['style-loader', 'css-loader', resolveUrlLoader, sassLoader] : [miniCssExtractLoader, 'css-loader', resolveUrlLoader, sassLoader];
 
 const rules = [
   /// EXTRACT CSS START
   {
-    test: /flag-icon-css[\/\\]flags[\/\\].+\.svg$/,
-    include: nodeModulesPath,
+    test: /\.svg$/,
+    include: path.join(webSrcPath, 'app', 'extra', 'flag-icon'),
     use: [
       {
         loader: 'svg-url-loader'
@@ -24,7 +28,12 @@ const rules = [
     ]
   },
   {
-    test: /(typeface-(roboto|open-sans)[\/\\]index|material-icons|flag-icon)\.css$/,
+    test: /\.scss$/,
+    include: path.join(webSrcPath, 'app', 'extra', 'flag-icon'),
+    use: extractScssLoaderResolve
+  },
+  {
+    test: /(typeface-(roboto|open-sans)[\/\\]index|material-icons)\.css$/,
     include: nodeModulesPath,
     use: extractCssLoader
   },
@@ -64,7 +73,15 @@ const rules = [
     ]
   },
   {
-    test: /\.(scss|sass)$/,
+    test: /[\/\\](extra)[\/\\](phone)[\/\\].+\.(scss|sass)$/,
+    include: path.join(webSrcPath, 'app'),
+    use: [
+      'raw-loader',
+      sassLoader
+    ]
+  },
+  {
+    test: /[\/\\](pages|components)[\/\\].+\.(scss|sass)$/,
     include: path.join(webSrcPath, 'app'),
     use: [
       'raw-loader',

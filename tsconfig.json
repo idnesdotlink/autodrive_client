@@ -99,6 +99,11 @@
       "./node_modules/@types"
     ]
   },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true,
+    "strictInjectionParameters": true
+  },
   "exclude": [
     "./node_modules",
     "./dist"
