@@ -3,15 +3,17 @@ import {MaterialModule} from '@modules/material.module'
 import {NgModule} from '@angular/core'
 
 // third party module
-import {AngularResizedEventModule} from 'angular-resize-event'
 import {AngularSplitModule} from 'angular-split'
 import {ClipboardModule} from 'ngx-clipboard'
-import {ColorPickerModule} from 'ngx-color-picker'
-import {ContextMenuModule} from 'ngx-contextmenu'
 import {DigitOnlyModule} from '@uiowa/digit-only'
-import {NgxBarcodeModule} from 'ngx-barcode'
 import {NgxChartsModule} from '@swimlane/ngx-charts'
-import {QRCodeModule} from 'angularx-qrcode'
+
+// extra-module
+import {AngularResizedEventModule} from '@extra/resize-event'
+import {NgxQRCodeModule} from '@extra/qrcode'
+import {NgxBarcodeModule} from '@extra/barcode'
+import {ColorPickerModule} from '@extra/color-picker'
+import {ContextMenuModule} from '@extra/context-menu'
 import {InternationalPhoneNumberModule} from '@extra/phone/phone-number.module'
 
 @NgModule({
@@ -26,7 +28,7 @@ import {InternationalPhoneNumberModule} from '@extra/phone/phone-number.module'
     DigitOnlyModule,
     NgxBarcodeModule,
     NgxChartsModule,
-    QRCodeModule,
+    NgxQRCodeModule,
     InternationalPhoneNumberModule
   ],
   exports: [
@@ -40,7 +42,7 @@ import {InternationalPhoneNumberModule} from '@extra/phone/phone-number.module'
     DigitOnlyModule,
     NgxBarcodeModule,
     NgxChartsModule,
-    QRCodeModule,
+    NgxQRCodeModule,
     InternationalPhoneNumberModule
   ]
 })

@@ -17,8 +17,9 @@
     <mat-tab>
       <ng-template mat-tab-label>Data Member</ng-template>
       <div style="height: 200px; width: 200px;">
-        <qrcode *ngIf="memberId" [qrdata]="memberId" [size]="200" [level]="'H'" [usesvg]="false" [allowEmptyString]="allowEmptyString"></qrcode>
+        <!-- <qrcode *ngIf="memberId" [qrdata]="memberId" [size]="200" [level]="'H'" [usesvg]="false" [allowEmptyString]="allowEmptyString"></qrcode> -->
       </div>
+      <ngx-qrcode  [qrc-element-type]="'svg'" [qrc-width]="50"></ngx-qrcode>
       <ngx-barcode [bc-value]="memberId" [bc-display-value]="true"></ngx-barcode>
       <button mat-raised-button>Salin Ke Clip</button>
       <button mat-raised-button (click)="ck()">cetak kartu</button>

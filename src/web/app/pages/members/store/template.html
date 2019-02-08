@@ -76,6 +76,20 @@
               name="phone_number"
               [allowedCountries]="['id', 'ca', 'us', 'my', 'sg']">
             </span>
+            <mat-form-field class="flg">
+              <mat-select [(ngModel)]="pn" panelClass="flg-panel">
+                <mat-select-trigger>
+                    <span [class]="'flag-icon flag-icon-' + pn"></span>
+                </mat-select-trigger>
+                <mat-option value="id"><span [class]="'flag-icon flag-icon-id'"></span></mat-option>
+                <mat-option value="gb"><span [class]="'flag-icon flag-icon-gb'"></span></mat-option>
+                <mat-option value="my"><span [class]="'flag-icon flag-icon-my'"></span></mat-option>
+                <mat-option value="sg"><span [class]="'flag-icon flag-icon-sg'"></span></mat-option>
+                <mat-option value="au"><span [class]="'flag-icon flag-icon-au'"></span></mat-option>
+                <mat-option value="vn"><span [class]="'flag-icon flag-icon-vn'"></span></mat-option>
+                <mat-option value="th"><span [class]="'flag-icon flag-icon-th'"></span></mat-option>
+              </mat-select>
+            </mat-form-field>
               <mat-form-field class="example-full-width">
                   <span matPrefix>
                   </span>

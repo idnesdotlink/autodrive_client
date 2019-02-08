@@ -2,7 +2,7 @@ import faker from 'faker'
 import { Component, ViewChild } from '@angular/core'
 import { SelectionModel } from '@angular/cdk/collections'
 import { MatTableDataSource } from '@angular/material'
-import { ContextMenuComponent } from 'ngx-contextmenu'
+import { ContextMenuComponent } from '@extra/context-menu'
 import { expandTableRows } from '@animations/expandTableRow'
 @Component({
   selector: 'pos-page-component',

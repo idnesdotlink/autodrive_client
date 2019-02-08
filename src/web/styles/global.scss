@@ -26,6 +26,49 @@ app-root > .placeholder > svg {
   display: block;
 }
 
+.flg .mat-form-field-infix {
+  width: 50px;
+}
+
+.flg .flag-icon {
+  width: 32px;
+  height: 16px;
+}
+
+.flg .flag-icon:before {
+  content: "";
+}
+
+.flg .mat-form-field-wrapper {
+  padding: 0;
+}
+
+.flg .mat-form-field-wrapper,
+.flg .mat-form-field-infix {
+  padding: 0;
+}
+.flg .mat-form-field-label-wrapper {
+
+}
+.flg .mat-form-field-underline {
+  display: none;
+}
+
+.flg-panel .mat-option {
+  padding: 0;
+}
+
+.flg-panel.mat-select-panel {
+  border-radius: 0;
+}
+
+.flg-panel .flag-icon{
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: unset;
+}
+
 /* [internationalCode] .mat-form-field,
 international-code .mat-form-field {
   display: inline-block;

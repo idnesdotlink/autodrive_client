@@ -7,3 +7,5 @@ import '@angular/router'
 
 import 'hammerjs'
 import 'rxjs'
+import 'jsbarcode'
+import 'qrcode/build/qrcode'

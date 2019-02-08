@@ -2,7 +2,7 @@ import {Component, ElementRef, AfterViewInit, ViewChild, OnInit} from '@angular/
 import * as d3Hierarchy from 'd3-hierarchy'
 import * as faker from 'faker'
 import {Scenario as Storage} from '@services/scenario.service'
-import {ResizedEvent} from 'angular-resize-event'
+import {ResizedEvent} from '@extra/resize-event'
 import {partition, find} from 'lodash'
 import {level} from '@helpers/level'
 import * as d3Selection from 'd3-selection'
