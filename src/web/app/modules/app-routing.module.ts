@@ -17,7 +17,7 @@ import { Intro } from '@pages/intro'
 import { LevelHome, LevelDetail, LevelEdit } from '@pages/levels'
 import { Login } from '@pages/login'
 import { MemberHome, MemberStore, MemberDetail } from '@pages/members'
-import { PosPageComponent } from '@pages/pos'
+// import { PosPageComponent } from '@pages/pos'
 import { TreeComponent } from '@pages/tree'
 import { InstallPage } from '@pages/install'
 
@@ -93,10 +93,10 @@ const routes: Routes = [
         path: 'preference',
         component: Preference
       },
-      {
+      /* {
         path: 'pos',
         component: PosPageComponent
-      },
+      }, */
       {
         path: 'dev',
         component: Dev
@@ -135,7 +135,7 @@ const routes: Routes = [
     MemberDetail,
     MemberHome,
     MemberStore,
-    PosPageComponent,
+    // PosPageComponent,
     Preference,
     TreeComponent,
     InstallPage

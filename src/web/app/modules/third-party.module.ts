@@ -6,15 +6,15 @@ import {NgModule} from '@angular/core'
 import {AngularSplitModule} from 'angular-split'
 import {ClipboardModule} from 'ngx-clipboard'
 import {DigitOnlyModule} from '@uiowa/digit-only'
-import {NgxChartsModule} from '@swimlane/ngx-charts'
 
 // extra-module
+import {NgxChartsModule} from '@extra/chart'
 import {AngularResizedEventModule} from '@extra/resize-event'
 import {NgxQRCodeModule} from '@extra/qrcode'
 import {NgxBarcodeModule} from '@extra/barcode'
 import {ColorPickerModule} from '@extra/color-picker'
 import {ContextMenuModule} from '@extra/context-menu'
-import {InternationalPhoneNumberModule} from '@extra/phone/phone-number.module'
+import {InternationalPhoneNumberModule} from '@extra/phone-number'
 
 @NgModule({
   imports: [

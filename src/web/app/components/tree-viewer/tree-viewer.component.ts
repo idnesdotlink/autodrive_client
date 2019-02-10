@@ -1,6 +1,6 @@
 import {Component, ElementRef, AfterViewInit, ViewChild, OnInit} from '@angular/core'
 import * as d3Hierarchy from 'd3-hierarchy'
-import * as faker from 'faker'
+// import * as faker from 'faker'
 import {Scenario as Storage} from '@services/scenario.service'
 import {ResizedEvent} from '@extra/resize-event'
 import {partition, find} from 'lodash'
@@ -205,7 +205,8 @@ export class TreeViewerComponent implements AfterViewInit, OnInit {
   }
 
   fakeName() {
-    return `${faker.name.prefix()} ${faker.name.firstName()} ${faker.name.lastName()} ${faker.name.suffix()}`;
+    return 'abc';
+    // return `${faker.name.prefix()} ${faker.name.firstName()} ${faker.name.lastName()} ${faker.name.suffix()}`;
   }
 
   save() {

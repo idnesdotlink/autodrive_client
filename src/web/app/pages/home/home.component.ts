@@ -15,16 +15,71 @@ export interface Tile {
 })
 export class HomeComponent implements OnInit {
 
+  cols = 1;
+
   constructor( private breakpointObserver: BreakpointObserver, private mediaMatcher: MediaMatcher) {
     this.breakpointObserver.observe([
       Breakpoints.HandsetLandscape,
+    ]).subscribe(result => {
+      if (result.matches) {
+        console.log(result)
+        console.log('handset landscape')
+        // this.activateHandsetLayout();
+      }
+    });
+    this.breakpointObserver.observe([
       Breakpoints.HandsetPortrait
     ]).subscribe(result => {
       if (result.matches) {
-        this.activateHandsetLayout();
+        console.log(result)
+        console.log('handset portrait')
+        // this.activateHandsetLayout();
       }
     });
+    this.breakpointObserver.observe([
+      Breakpoints.Small
+    ]).subscribe(
+      result => {
+        if(result.matches) {
+          this.cols = 1
+          console.log(result)
+          console.log('small')
+        }
+      }
+    )
+    this.breakpointObserver.observe([
+      Breakpoints.Medium
+    ]).subscribe(
+      result => {
+        if(result.matches) {
+          this.cols = 2;
+          console.log('medium')
+        }
+      }
+    )
+    this.breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe(
+      result => {
+        if(result.matches) {
+          this.cols = 3;
+          console.log('medium')
+        }
+      }
+    )
+
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall
+    ]).subscribe(
+      result => {
+        if(result.matches) {
+          this.cols = 1;
+          console.log('xsmall')
+        }
+      }
+    )
     const mediaQueryList = this.mediaMatcher.matchMedia('(min-width: 1px)');
+    // mediaQueryList.
   }
 
   activateHandsetLayout() {
@@ -151,7 +206,7 @@ export class HomeComponent implements OnInit {
   viewx = [400, 400];
   wow: any[] =[
     {
-      'name': 'Germany',
+      'name': '31-11-2011',
       'series': [
         {
           'name': '2010',
@@ -169,7 +224,7 @@ export class HomeComponent implements OnInit {
     },
 
     {
-      'name': 'USA',
+      'name': '31-11-2012',
       'series': [
         {
           'name': '2010',
@@ -223,7 +278,7 @@ export class HomeComponent implements OnInit {
       ]
     },
     {
-      'name': 'France',
+      'name': '31-11-2012',
       'series': [
         {
           'name': '2010',
@@ -240,7 +295,7 @@ export class HomeComponent implements OnInit {
       ]
     },
     {
-      'name': 'United Kingdom',
+      'name': '31-11-2013',
       'series': [
         {
           'name': '2010',

@@ -59,7 +59,11 @@ const rules = [
   },
   {
     test: /\.html$/,
-    loader: 'html-loader'
+    use: [
+      {
+        loader: 'html-loader'
+      }
+    ]
   },
   {
     test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
@@ -73,7 +77,7 @@ const rules = [
     ]
   },
   {
-    test: /[\/\\](extra)[\/\\](phone)[\/\\].+\.(scss|sass)$/,
+    test: /[\/\\](extra)[\/\\](chart|phone-number)[\/\\].+\.(scss|sass)$/,
     include: path.join(webSrcPath, 'app'),
     use: [
       'raw-loader',

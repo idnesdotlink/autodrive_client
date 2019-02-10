@@ -2,8 +2,9 @@ import path from 'path';
 import webpackMerge from 'webpack-merge';
 import rules from './rules';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 import { srcPath, distPath, isWeb, isDev, rootPath, isHMR } from '@compiler/common/constant';
 import { alias } from '@compiler/common/alias';
@@ -24,13 +25,7 @@ const outputPath = (isWeb) ? webDistPath : electronDistPath;
 
 const optimization = {
   minimizer: [
-    new UglifyJsPlugin(
-      {
-        cache: true,
-        parallel: true,
-        sourceMap: false // set to true if you want JS source maps
-      }
-    ),
+    new TerserPlugin(),
     new OptimizeCSSAssetsPlugin({})
   ]
 };
@@ -59,15 +54,17 @@ let config = {
     contextreplacement(webSrcPath),
     htmlwebpack(templateFile),
     removeTag,
-    webpackdefine,
+    webpackdefine
   ],
 }
 
 if (true) config.plugins.push(minicssextract)
-
+if (false) config.plugins.push(new BundleAnalyzerPlugin({
+  generateStatsFile: true
+}))
 if (!isWeb) { config.entry['main.renderer'] = config.entry.main; delete config.entry.main; }
 
-if (!isDev) config.optimization = optimization;
+config.optimization = optimization;
 
 config = webpackMerge(base, config);
 

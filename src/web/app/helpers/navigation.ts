@@ -19,11 +19,11 @@ const navigation = function (router: any): navigationList[] {
       icon: 'dashboard',
       routerLink: '/admin/home'
     },
-    {
+    /* {
       tooltip: 'Sales',
       icon: 'local_grocery_store',
       routerLink: '/admin/pos'
-    },
+    }, */
     {
       tooltip: 'Levels',
       icon: 'grade',
