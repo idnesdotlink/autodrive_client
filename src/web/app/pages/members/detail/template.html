@@ -13,7 +13,9 @@
     </button>
   </div>
 
-  <mat-tab-group style="height: 100%; width: 100%; display: flex;">
+  <mat-tab-group
+    [animationDuration]="'0ms'"
+    style="height: 100%; width: 100%; display: flex;">
     <mat-tab>
       <ng-template mat-tab-label>Data Member</ng-template>
       <div style="height: 200px; width: 200px;">
@@ -35,14 +37,17 @@
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Data Downline</ng-template>
-      [Data Downline]
+      <member-table></member-table>
     </mat-tab>
     <mat-tab>
-      <ng-template mat-tab-label>History Level</ng-template>
-      [History Level]
+      <ng-template mat-tab-label>Grafik</ng-template>
+      <div>
+        <member-line-chart></member-line-chart>
+      </div>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Tree</ng-template>
+      <tree-viewer></tree-viewer>
     </mat-tab>
   </mat-tab-group>
 </page-standard>

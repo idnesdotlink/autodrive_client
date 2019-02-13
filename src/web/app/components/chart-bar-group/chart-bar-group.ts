@@ -2,11 +2,11 @@ import {Component} from '@angular/core'
 import {Input} from '@angular/core'
 
 @Component({
-  selector: 'chart-bar',
+  selector: 'chart-bar-group',
   templateUrl: 'template.html',
   styleUrls: ['style.scss']
 })
-export class ChartBarComponent {
+export class ChartBarGroupComponent {
 
   @Input() mode: 'horizontal' | 'vertical' = 'horizontal';
 

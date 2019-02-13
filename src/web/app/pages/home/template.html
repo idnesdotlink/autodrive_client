@@ -1,124 +1,45 @@
 <box-padding>
-  <div style="height: 100%; width: 100%; overflow-y: scroll; display: block;">
+  <div style="height: 100%; width: 100%; overflow-y: auto; display: block;">
     <mat-grid-list [cols]="cols">
       <mat-grid-tile>
         <home-card>
-          <div>
-            <ngx-charts-bar-horizontal
-              [view]="[300, 300]"
-              [animations]="false"
-              [scheme]="colorScheme"
-              [results]="bsingle"
-              [gradient]="gradient"
-              [xAxis]="false"
-              [yAxis]="false"
-              [legend]="false"
-              [showXAxisLabel]="false"
-              [showGridLines]="false"
-              [showYAxisLabel]="false"
-              [roundEdges]="false"
-              [showDataLabel]="false"
-              (select)="onSelect($event)">
-            </ngx-charts-bar-horizontal>
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+            <chart-bar mode="horizontal"></chart-bar>
           </div>
         </home-card>
       </mat-grid-tile>
       <mat-grid-tile>
         <home-card>
           <div>
-            <ngx-charts-bar-vertical
-              [animations]="false"
-              [view]="[250, 250]"
-              [scheme]="colorScheme"
-              [results]="bsingle"
-              [gradient]="false"
-              [xAxis]="false"
-              [yAxis]="false"
-              [legend]="false"
-              [showXAxisLabel]="false"
-              [showGridLines]="false"
-              [showYAxisLabel]="false"
-              [roundEdges]="false"
-              [showDataLabel]="false"
-              (select)="onSelect($event)">
-            </ngx-charts-bar-vertical>
+            <chart-bar mode="vertical"></chart-bar>
           </div>
         </home-card>
       </mat-grid-tile>
       <mat-grid-tile>
         <home-card>
           <div>
-            <ngx-charts-pie-chart
-              [animations]="false"
-              [view]="aview"
-              [scheme]="acolorScheme"
-              [results]="amulti"
-              [doughnut]="adoughnut">
-            </ngx-charts-pie-chart>
+            <member-donut-chart></member-donut-chart>
           </div>
         </home-card>
       </mat-grid-tile>
       <mat-grid-tile>
         <home-card>
           <div>
-            <ngx-charts-bar-horizontal-2d
-                [animations]="false"
-                [view]="[250, 250]"
-                [scheme]="colorScheme"
-                [results]="wow2"
-                [gradient]="false"
-                [xAxis]="false"
-                [yAxis]="false"
-                [legend]="false"
-                [showXAxisLabel]="false"
-                [showGridLines]="false"
-                [showYAxisLabel]="false"
-                [roundEdges]="false"
-                [showDataLabel]="false"
-                (select)="onSelect($event)">
-              </ngx-charts-bar-horizontal-2d>
+            <chart-bar-group></chart-bar-group>
           </div>
         </home-card>
       </mat-grid-tile>
       <mat-grid-tile>
         <home-card>
           <div>
-            <ngx-charts-bar-vertical-2d
-              [animations]="false"
-              [view]="[250, 250]"
-              [scheme]="colorScheme"
-              [results]="wow3"
-              [gradient]="false"
-              [xAxis]="false"
-              [yAxis]="false"
-              [legend]="false"
-              [showXAxisLabel]="false"
-              [showGridLines]="false"
-              [showYAxisLabel]="false"
-              [roundEdges]="false"
-              [showDataLabel]="false"
-              (select)="onSelect($event)">
-            </ngx-charts-bar-vertical-2d>
+            <chart-bar-group mode="vertical"></chart-bar-group>
           </div>
         </home-card>
       </mat-grid-tile>
       <mat-grid-tile>
         <home-card>
           <div>
-            <ngx-charts-line-chart
-              [animations]="false"
-              [view]="[250, 250]"
-              [scheme]="colorScheme"
-              [results]="wow"
-              [gradient]="gradient"
-              [xAxis]="false"
-              [yAxis]="false"
-              [legend]="false"
-              [showXAxisLabel]="false"
-              [showGridLines]="false"
-              [showYAxisLabel]="false"
-              (select)="onSelect($event)">
-            </ngx-charts-line-chart>
+            <member-line-chart></member-line-chart>
           </div>
         </home-card>
       </mat-grid-tile>

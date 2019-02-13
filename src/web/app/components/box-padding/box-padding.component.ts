@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core'
 @Component({
   selector: 'box-padding',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class BoxPadding implements OnInit {
   @Input() padding: number = 0;

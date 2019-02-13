@@ -9,10 +9,12 @@ import { AlphaChannel, OutputFormat, SliderDimension, SliderPosition } from './h
 
 import { ColorPickerService } from './color-picker.service';
 
+import {Overlay} from '@angular/cdk/overlay'
+
 @Component({
   selector: 'color-picker',
   templateUrl: 'color-picker.component.html',
-  styleUrls: [ 'color-picker.component.css' ],
+  styleUrls: [ 'color-picker.component.scss' ],
   encapsulation: ViewEncapsulation.None
 })
 export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {

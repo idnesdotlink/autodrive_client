@@ -7,6 +7,7 @@ import { fadeAnimation } from '@animations/fadeAnimation';
   selector: 'app-base',
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
+  preserveWhitespaces: false,
   providers: [
     SidenavService
   ],

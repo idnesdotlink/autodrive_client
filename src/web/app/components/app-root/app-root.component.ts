@@ -5,7 +5,8 @@ import {fadeAnimation} from '@animations/fadeAnimation'
   selector: 'app-root',
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
-  animations: [fadeAnimation]
+  animations: [fadeAnimation],
+  preserveWhitespaces: false
   // host: {'[@fadeAnimation]': ''}
 })
 export class AppRootComponent {

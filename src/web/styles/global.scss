@@ -2,6 +2,7 @@ html, body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  min-width: 320px;
 }
 body {
   padding: 0;
@@ -67,6 +68,13 @@ app-root > .placeholder > svg {
   height: 100%;
   display: block;
   line-height: unset;
+}
+
+.b > div {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
 }
 
 /* [internationalCode] .mat-form-field,

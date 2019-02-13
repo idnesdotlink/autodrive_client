@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core'
 import {ThirdPartyModule} from '@modules/third-party.module'
-// import {TreeViewerModule} from '../tree-viewer'
 // components
 import {AppBar} from '@components/app-bar'
 import {AppNav} from '@components/app-nav'
@@ -18,7 +17,13 @@ import {PageTable} from '@components/page-table'
 import {SnackbarNotification} from '@components/snackbar-notification'
 import {HomeCard} from '@components/home-card'
 import {SvgSvg} from '@components/svg-svg'
-import {TreeViewerComponent} from '@components/tree-viewer'
+import {TreeViewer} from '@components/tree-viewer'
+import {MemberTable} from '@components/member-table'
+import {MemberDonutChart} from '@components/member-donut-chart'
+import {MemberLineChart} from '@components/member-line-chart'
+import {ChartBar} from '@components/chart-bar'
+import {ChartBarGroup} from '@components/chart-bar-group'
+import {HasOverlay} from '@components/example-overlay'
 
 @NgModule({
   imports: [
@@ -41,7 +46,13 @@ import {TreeViewerComponent} from '@components/tree-viewer'
     SnackbarNotification,
     HomeCard,
     SvgSvg,
-    TreeViewerComponent
+    TreeViewer,
+    MemberTable,
+    MemberDonutChart,
+    MemberLineChart,
+    ChartBarGroup,
+    ChartBar,
+    HasOverlay
   ],
   exports: [
     ThirdPartyModule,
@@ -62,7 +73,13 @@ import {TreeViewerComponent} from '@components/tree-viewer'
     SnackbarNotification,
     HomeCard,
     SvgSvg,
-    TreeViewerComponent
+    TreeViewer,
+    MemberTable,
+    MemberDonutChart,
+    MemberLineChart,
+    ChartBarGroup,
+    ChartBar,
+    HasOverlay
   ],
   entryComponents: [
     ConfirmDialog,

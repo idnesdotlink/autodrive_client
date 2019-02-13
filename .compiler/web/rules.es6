@@ -77,8 +77,8 @@ const rules = [
     ]
   },
   {
-    test: /[\/\\](extra)[\/\\](chart|phone-number)[\/\\].+\.(scss|sass)$/,
-    include: path.join(webSrcPath, 'app'),
+    test: /[\/\\](chart|phone-number|color-picker)[\/\\].+\.(scss|sass)$/,
+    include: path.join(webSrcPath, 'app', 'extra'),
     use: [
       'raw-loader',
       sassLoader

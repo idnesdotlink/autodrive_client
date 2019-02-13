@@ -1,5 +1,8 @@
 <page-standard (clickBack)="clickBack()">
-  <mat-horizontal-stepper [linear]="isLinear" (animationDone)="animationDone()" #stepper class="psg-psg">
+  <mat-horizontal-stepper
+    [linear]="isLinear"
+    (animationDone)="animationDone()"
+    #stepper class="psg-psg">
     <mat-step [stepControl]="personalGroup">
       <ng-template matStepLabel>Data Personal</ng-template>
         <box-padding>

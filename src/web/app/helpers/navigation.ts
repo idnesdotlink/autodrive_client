@@ -44,12 +44,7 @@ const navigation = function (router: any): navigationList[] {
       icon: 'build',
       routerLink: '/admin/dev'
     },
-    {
-      tooltip: 'tree',
-      icon: 'build',
-      routerLink: '/admin/tree'
-    },
-    {
+    /* {
       tooltip: 'Full Screen',
       icon: () => {
         return (screenfull && screenfull.isFullscreen) ? 'fullscreen_exit' : 'fullscreen';
@@ -67,7 +62,7 @@ const navigation = function (router: any): navigationList[] {
       },
       backgroundColor: 'darkorange',
       color: 'white',
-    },
+    }, */
     {
       tooltip: 'my account',
       icon: 'account_circle',

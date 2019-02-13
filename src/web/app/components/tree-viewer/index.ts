@@ -1,1 +1,1 @@
-export * from './tree-viewer.component'
+export {TreeViewerComponent as TreeViewer} from './tree-viewer.component'
