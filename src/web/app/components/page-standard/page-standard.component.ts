@@ -4,7 +4,8 @@ import {Location} from '@angular/common'
 @Component({
   selector: 'page-standard',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class PageStandardComponent implements OnInit {
   @Input() title: string;

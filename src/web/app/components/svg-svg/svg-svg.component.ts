@@ -14,7 +14,8 @@ export interface svgMargin {
 @Component({
   selector: '[svg-svg]',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class SvgSvg implements AfterContentInit, OnChanges, OnInit, OnDestroy {
   @ViewChild('svgSvg', {read: ElementRef}) svgSvg: ElementRef;

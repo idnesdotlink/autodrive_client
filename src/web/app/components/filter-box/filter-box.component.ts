@@ -4,7 +4,8 @@ import {filter, map, every} from 'lodash'
 @Component({
   selector: 'filter-box',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class FilterBoxComponent implements OnInit {
   @Input() filterItem: any[];

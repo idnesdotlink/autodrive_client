@@ -4,7 +4,8 @@ import {Input} from '@angular/core'
 @Component({
   selector: 'chart-bar',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class ChartBarComponent {
 

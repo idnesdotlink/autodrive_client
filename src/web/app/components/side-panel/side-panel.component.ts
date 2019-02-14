@@ -3,7 +3,8 @@ import {Component} from '@angular/core'
 Component({
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
-  selector: 'side-panel'
+  selector: 'side-panel',
+  preserveWhitespaces: false
 })
 export class SidePanelComponent {
 

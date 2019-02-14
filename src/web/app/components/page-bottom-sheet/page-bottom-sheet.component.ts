@@ -3,7 +3,8 @@ import {MAT_BOTTOM_SHEET_DATA} from '@angular/material'
 
 @Component({
   selector: 'page-bottom-sheet',
-  templateUrl: 'template.html'
+  templateUrl: 'template.html',
+  preserveWhitespaces: false
 })
 export class PageBottomSheetComponent {
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any) { }

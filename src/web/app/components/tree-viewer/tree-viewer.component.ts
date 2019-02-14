@@ -26,7 +26,8 @@ export interface scenarioItem {
   selector: 'tree-viewer',
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
-  providers: [Storage]
+  providers: [Storage],
+  preserveWhitespaces: false
 })
 export class TreeViewerComponent implements AfterViewInit, OnInit {
   @ViewChild('svgTreeRef', {read: ElementRef}) svgTreeRef: ElementRef;

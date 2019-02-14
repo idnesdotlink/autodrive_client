@@ -8,7 +8,8 @@ import { svgMargin } from '@components/svg-svg'
 
 @Component({
   selector: '[svg-g]',
-  templateUrl: 'template.html'
+  templateUrl: 'template.html',
+  preserveWhitespaces: false
 })
 export class SvgG  implements AfterContentInit, OnChanges {
   @ViewChild('svgG', {read: ElementRef}) svgG: ElementRef;

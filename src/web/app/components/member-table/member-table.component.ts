@@ -20,7 +20,8 @@ import {MembersService} from '@services/members.service'
   ],
   providers: [
     MembersService
-  ]
+  ],
+  preserveWhitespaces: false
 })
 export class MemberTableComponent implements OnInit, OnDestroy, pageStandard {
   // paginator

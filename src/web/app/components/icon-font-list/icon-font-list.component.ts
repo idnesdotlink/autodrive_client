@@ -4,7 +4,8 @@ import {ClipboardService} from 'ngx-clipboard'
 import {MatSnackBar} from '@angular/material'
 @Component({
   selector: 'icon-font-list',
-  templateUrl: 'template.html'
+  templateUrl: 'template.html',
+  preserveWhitespaces: false
 })
 export class IconFontListComponent {
   public icons: any;

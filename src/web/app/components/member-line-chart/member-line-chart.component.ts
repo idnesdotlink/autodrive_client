@@ -3,7 +3,8 @@ import {Component} from '@angular/core'
 @Component({
   selector: 'member-line-chart',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss']
+  styleUrls: ['style.scss'],
+  preserveWhitespaces: false
 })
 export class MemberLineChartComponent {
 

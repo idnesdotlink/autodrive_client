@@ -11,7 +11,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms'
       useExisting: forwardRef(() => ColorPickerComponent),
       multi: true
     }
-  ]
+  ],
+  preserveWhitespaces: false
 })
 export class ColorPickerComponent implements ControlValueAccessor {
 
