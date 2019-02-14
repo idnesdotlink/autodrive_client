@@ -14,12 +14,12 @@ import {map} from 'rxjs/operators'
   ]
 })
 export class InstallComponent implements OnInit, OnDestroy {
-  private installing: SubscriptionLike;
+  installing: SubscriptionLike;
   private configForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private install: InstallService, private router: Router) {}
   onSubmit(e: Event) {
     if (this.configForm.invalid) return;
-    this.installing = this.install.install(this.f.url.value, this.f.key.value).subscribe(
+    this.installing = this.install.install(this.f.host.value, this.f.port.value, this.f.key.value).subscribe(
       (v) => {
         if(v) this.router.navigate(['/login'])
       }
@@ -36,8 +36,9 @@ export class InstallComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.configForm = this.formBuilder.group({
-      url: ['http://127.0.0.1:8000', Validators.required],
-      key: ['api-key', Validators.required]
+      host: ['http://127.0.0.1', Validators.required],
+      port: [8000, Validators.required],
+      key: ['ae3f398d-254e-4b23-8a5e-92cf931a82b0', Validators.required]
     });
   }
 }

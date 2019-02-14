@@ -5,19 +5,32 @@ import {Observable, of} from 'rxjs'
 import {map, first} from 'rxjs/operators'
 import {config} from '@configs'
 
+interface installConf {
+  host: string,
+  port: number,
+  key: string
+}
+
 @Injectable()
 export class InstallService {
   constructor(private http: HttpClient, private storage: LocalStorage) {
 
   }
 
-  installed(): Observable<boolean> {
+  conf(): Observable<installConf> {
     return this.storage.getItem('installed').pipe(
-      first<boolean>()
+      first<installConf>()
     )
   }
-  install(url: string, key: string) {
-    this.http.post(`${url}/api/verify`, {key}, {
+
+  installed(): Observable<installConf> {
+    return this.storage.getItem('installed').pipe(
+      first<installConf>()
+    )
+  }
+
+  install(host: string, port: number, key: string) {
+    this.http.post(`${host}:${port}/api/verify`, {key}, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -27,7 +40,7 @@ export class InstallService {
       e => console.log(e),
       () => console.log('c')
     )
-    return this.storage.setItem('installed', true);
+    return this.storage.setItem('installed', {host, port, key});
   }
 
   verify(url: string, ) {

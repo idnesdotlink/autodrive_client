@@ -3,13 +3,23 @@
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()" autocomplete="off">
       <mat-form-field>
         <input
-          formControlName="url"
+          formControlName="host"
           autocomplete="off"
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
           matInput
-          placeholder="API URL">
+          placeholder="Host">
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          formControlName="port"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          matInput
+          placeholder="Port">
       </mat-form-field>
       <mat-form-field>
           <input
@@ -19,7 +29,7 @@
             autocapitalize="off"
             spellcheck="false"
             matInput
-            placeholder="API KEY">
+            placeholder="Key">
       </mat-form-field>
       <button mat-stroked-button>Install</button>
     </form>
