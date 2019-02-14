@@ -23,7 +23,7 @@ import {MemberDonutChart} from '@components/member-donut-chart'
 import {MemberLineChart} from '@components/member-line-chart'
 import {ChartBar} from '@components/chart-bar'
 import {ChartBarGroup} from '@components/chart-bar-group'
-import {HasOverlay} from '@components/example-overlay'
+import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-overlay'
 
 @NgModule({
   imports: [
@@ -52,7 +52,8 @@ import {HasOverlay} from '@components/example-overlay'
     MemberLineChart,
     ChartBarGroup,
     ChartBar,
-    HasOverlay
+    HasOverlay,
+    ExampleOverlay
   ],
   exports: [
     ThirdPartyModule,
@@ -79,12 +80,17 @@ import {HasOverlay} from '@components/example-overlay'
     MemberLineChart,
     ChartBarGroup,
     ChartBar,
-    HasOverlay
+    HasOverlay,
+    ExampleOverlay
   ],
   entryComponents: [
     ConfirmDialog,
     PageBottomSheet,
     SnackbarNotification,
+    ExampleOverlay
+  ],
+  providers: [
+    overlayService
   ]
 })
 export class ComponentsModule {}

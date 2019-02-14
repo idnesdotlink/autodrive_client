@@ -34,9 +34,13 @@ import {
   MatTreeModule
 } from '@angular/material';
 import {DragDropModule} from '@angular/cdk/drag-drop'
+import {OverlayModule} from '@angular/cdk/overlay'
+import {PortalModule} from '@angular/cdk/portal'
 
 @NgModule({
   imports: [
+    PortalModule,
+    OverlayModule,
     DragDropModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -72,6 +76,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop'
     MatTreeModule
   ],
   exports: [
+    PortalModule,
+    OverlayModule,
     DragDropModule,
     MatBadgeModule,
     MatBottomSheetModule,
