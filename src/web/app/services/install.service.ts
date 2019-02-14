@@ -31,10 +31,7 @@ export class InstallService {
   }
 
   verify(url: string, ) {
-    this
-
-
-    .http.post(`${url}/verify`, {}, {})
+    this.http.post(`${url}/verify`, {}, {})
   }
 
   validate() {

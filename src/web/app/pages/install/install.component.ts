@@ -20,7 +20,9 @@ export class InstallComponent implements OnInit, OnDestroy {
   onSubmit(e: Event) {
     if (this.configForm.invalid) return;
     this.installing = this.install.install(this.f.url.value, this.f.key.value).subscribe(
-      () => {}
+      (v) => {
+        if(v) this.router.navigate(['/login'])
+      }
     )
   }
 
@@ -34,7 +36,7 @@ export class InstallComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.configForm = this.formBuilder.group({
-      url: ['http://127.0.0.1:9080', Validators.required],
+      url: ['http://127.0.0.1:8000', Validators.required],
       key: ['api-key', Validators.required]
     });
   }

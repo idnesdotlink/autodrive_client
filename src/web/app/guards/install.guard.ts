@@ -16,8 +16,8 @@ export class InstallGuard implements CanActivate, CanActivateChild {
         if (installed) {
           return true;
         } else {
-          // this.router.navigate(['/install']);
-          return true;
+          this.router.navigate(['/install']);
+          // return true;
         }
       })
     );
