@@ -24,6 +24,7 @@ import {MemberLineChart} from '@components/member-line-chart'
 import {ChartBar} from '@components/chart-bar'
 import {ChartBarGroup} from '@components/chart-bar-group'
 import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-overlay'
+import {SplitInput, SplitInputDirective} from '@components/split-input'
 
 @NgModule({
   imports: [
@@ -53,7 +54,9 @@ import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-ov
     ChartBarGroup,
     ChartBar,
     HasOverlay,
-    ExampleOverlay
+    ExampleOverlay,
+    SplitInput,
+    SplitInputDirective
   ],
   exports: [
     ThirdPartyModule,
@@ -81,7 +84,9 @@ import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-ov
     ChartBarGroup,
     ChartBar,
     HasOverlay,
-    ExampleOverlay
+    ExampleOverlay,
+    SplitInput,
+    SplitInputDirective
   ],
   entryComponents: [
     ConfirmDialog,

@@ -6,7 +6,8 @@ import {NgModule} from '@angular/core'
 import {ComponentsModule} from '@modules/components.module'
 import {AppRoutingModule} from '@modules/app-routing.module'
 import {AuthenticationService} from '@services/authentication.service'
-import {AuthenticationInterceptor} from '@services/authentication.interceptor';
+import {AuthenticationInterceptorService} from '@services/authentication-interceptor.service';
+import {MockRequestInterceptorService} from '@services/mock-request-interceptor.service';
 
 // components
 import {AppRootComponent} from '@components/app-root'
@@ -32,7 +33,11 @@ import {CacheService} from '@services/cache.service'
     AuthenticationService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthenticationInterceptor, multi: true
+      useClass: MockRequestInterceptorService, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptorService, multi: true
     }
   ]
 })

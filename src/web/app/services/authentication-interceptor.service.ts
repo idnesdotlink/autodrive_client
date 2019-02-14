@@ -7,7 +7,7 @@ import {config} from '@configs'
 import {AuthenticationService} from './authentication.service'
 
 @Injectable()
-export class AuthenticationInterceptor implements HttpInterceptor {
+export class AuthenticationInterceptorService implements HttpInterceptor {
 
   constructor(private authenticationService: AuthenticationService) { }
 

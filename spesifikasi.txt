@@ -1,0 +1,28 @@
+SILVER
+3% G
+
+GOLD
+6% GOLD
+
+DIAMOND
+9% GOLD
+
+
+DD
+2%G
++ 0.5% kota
+
+TD
+3%G
++ 1% kota
+
+AMB
+1%G + .5% Prov
+
+DAMB
+2%G + 1%Prov
+
+TA
+
+2%G + 1%Nas
+

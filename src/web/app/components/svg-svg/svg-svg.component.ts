@@ -50,9 +50,7 @@ export class SvgSvg implements AfterContentInit, OnChanges, OnInit, OnDestroy {
     this.svgSelection = d3Selection.select(this.svgSvg.nativeElement);
     this.zoomGroup = this.svgSelection.select('g.pan-zoom')
     this.nodes = this.zoomGroup.select('g.nodes')
-    console.log(this.nodes)
     this.zoom = d3Zoom.zoom();
-    console.log('init')
   }
 
   ngOnDestroy() {

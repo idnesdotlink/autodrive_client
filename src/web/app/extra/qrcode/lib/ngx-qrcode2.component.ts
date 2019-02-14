@@ -117,7 +117,7 @@ export class NgxQRCodeComponent implements OnChanges {
         this.toString().then(
           v => {
             this.qrcElement.nativeElement.innerHTML = v
-            console.log(v)
+            // console.log(v)
             // this.renderElement(this.renderer.);
           }
         )

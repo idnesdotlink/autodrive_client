@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core'
 // third party module
 import {AngularSplitModule} from 'angular-split'
 import {ClipboardModule} from 'ngx-clipboard'
-import {DigitOnlyModule} from '@uiowa/digit-only'
+// import {DigitOnlyModule} from '@uiowa/digit-only'
 
 // extra-module
 import {NgxChartsModule} from '@extra/chart'
@@ -15,6 +15,7 @@ import {NgxBarcodeModule} from '@extra/barcode'
 import {ColorPickerModule} from '@extra/color-picker'
 import {ContextMenuModule} from '@extra/context-menu'
 import {InternationalPhoneNumberModule} from '@extra/phone-number'
+import {DigitOnlyModule} from '@extra/digit-only'
 
 @NgModule({
   imports: [
