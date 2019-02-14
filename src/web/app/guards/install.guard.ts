@@ -24,7 +24,16 @@ export class InstallGuard implements CanActivate, CanActivateChild {
   }
 
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return true;
+    return this.InstallService.installed().pipe(
+      map(installed => {
+        if (installed) {
+          return true;
+        } else {
+          this.router.navigate(['/install']);
+          // return true;
+        }
+      })
+    );
   }
 
 }

@@ -45,6 +45,7 @@ const routes: Routes = [
     path: 'admin',
     component: AppBase,
     canActivate: [InstallGuard, AuthGuard],
+    canActivateChild: [InstallGuard],
     children: [
       {
         path: 'home',
