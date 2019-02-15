@@ -6,8 +6,7 @@
     <mat-step [stepControl]="personalGroup">
       <ng-template matStepLabel>Data Personal</ng-template>
         <box-padding>
-          <div style="height: 100%; width: 100%; overflow-y: auto; display: block;">
-            <div style="padding: 20px;">
+          <scroll-padding [padding]="30">
               <form [formGroup]="personalGroup">
                 <mat-form-field>
                   <input
@@ -52,18 +51,11 @@
                 <div>
                   <mat-form-field>
                     <input
-                      digitOnly
-                      maxlength="15"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      appearance="standard"
-                      autocomplete="off"
-                      spellcheck="false"
                       matInput
-                      placeholder="Telepon"
+                      type="text"
                       formControlName="phone"
                       [value]="personalGroup.get('phone').value"
-                      required>
+                      [mask]="'000-000-000-000-000'">
                       <mat-hint align="end">{{personalGroup.get('phone').value?.length || 0}}/15</mat-hint>
                   </mat-form-field>
                 </div>
@@ -84,13 +76,9 @@
                 <mat-select-trigger>
                     <span [class]="'flag-icon flag-icon-' + pn"></span>
                 </mat-select-trigger>
-                <mat-option value="id"><span [class]="'flag-icon flag-icon-id'"></span></mat-option>
-                <mat-option value="gb"><span [class]="'flag-icon flag-icon-gb'"></span></mat-option>
-                <mat-option value="my"><span [class]="'flag-icon flag-icon-my'"></span></mat-option>
-                <mat-option value="sg"><span [class]="'flag-icon flag-icon-sg'"></span></mat-option>
-                <mat-option value="au"><span [class]="'flag-icon flag-icon-au'"></span></mat-option>
-                <mat-option value="vn"><span [class]="'flag-icon flag-icon-vn'"></span></mat-option>
-                <mat-option value="th"><span [class]="'flag-icon flag-icon-th'"></span></mat-option>
+                <ng-template ngFor let-flag [ngForOf]="['id', 'gb', 'my', 'au', 'vn', 'th']">
+                  <mat-option [value]="flag"><span [class]="'flag-icon flag-icon-' + flag"></span></mat-option>
+                </ng-template>
               </mat-select>
             </mat-form-field>
               <mat-form-field class="example-full-width">
@@ -108,9 +96,8 @@
                     spellcheck="false">
               </mat-form-field>
               <button mat-stroked-button (click)="show()">OK</button>
-            </div>
-          </div>
-        </box-padding>
+        </scroll-padding>
+      </box-padding>
     </mat-step>
     <mat-step [stepControl]="addressGroup">
       <ng-template matStepLabel>Alamat</ng-template>

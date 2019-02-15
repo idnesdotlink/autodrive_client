@@ -16,6 +16,8 @@ import {ColorPickerModule} from '@extra/color-picker'
 import {ContextMenuModule} from '@extra/context-menu'
 import {InternationalPhoneNumberModule} from '@extra/phone-number'
 import {DigitOnlyModule} from '@extra/digit-only'
+import {NgxMaskModule} from '@extra/input-mask'
+import {NgxCurrencyModule} from '@extra/currency-mask'
 
 @NgModule({
   imports: [
@@ -30,7 +32,9 @@ import {DigitOnlyModule} from '@extra/digit-only'
     NgxBarcodeModule,
     NgxChartsModule,
     NgxQRCodeModule,
-    InternationalPhoneNumberModule
+    InternationalPhoneNumberModule,
+    NgxMaskModule.forRoot(),
+    NgxCurrencyModule
   ],
   exports: [
     BaseModule,
@@ -44,7 +48,9 @@ import {DigitOnlyModule} from '@extra/digit-only'
     NgxBarcodeModule,
     NgxChartsModule,
     NgxQRCodeModule,
-    InternationalPhoneNumberModule
+    InternationalPhoneNumberModule,
+    NgxMaskModule,
+    NgxCurrencyModule
   ]
 })
 export class ThirdPartyModule {}

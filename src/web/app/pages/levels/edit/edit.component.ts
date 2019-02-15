@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
   id: number;
   level: Level;
   editGroup: FormGroup;
+  test: '';
 
 
   public color: string = '#2889e9';
@@ -40,7 +41,7 @@ export class EditComponent implements OnInit {
     this.getLevel();
     this.editGroup = this.formBuilder.group(
       {
-        name: [''],
+        name: ['123123123123123'],
         color: ['#ffcc00'],
         group_percentage: [0],
         area_percentage: [0],

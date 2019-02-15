@@ -25,6 +25,7 @@ import {ChartBar} from '@components/chart-bar'
 import {ChartBarGroup} from '@components/chart-bar-group'
 import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-overlay'
 import {SplitInput, SplitInputDirective} from '@components/split-input'
+import {ScrollPadding} from '@components/scroll-padding'
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import {SplitInput, SplitInputDirective} from '@components/split-input'
     HasOverlay,
     ExampleOverlay,
     SplitInput,
-    SplitInputDirective
+    SplitInputDirective,
+    ScrollPadding
   ],
   exports: [
     ThirdPartyModule,
@@ -86,7 +88,8 @@ import {SplitInput, SplitInputDirective} from '@components/split-input'
     HasOverlay,
     ExampleOverlay,
     SplitInput,
-    SplitInputDirective
+    SplitInputDirective,
+    ScrollPadding
   ],
   entryComponents: [
     ConfirmDialog,
