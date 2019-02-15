@@ -1,6 +1,17 @@
 <box-padding padding="20" background="black">
   <div style="color: white;">
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <mat-checkbox formControlName="secure">Check me!</mat-checkbox>
+<!--     <mat-form-field>
+        <input
+          formControlName="secure"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          matInput
+          placeholder="Secure">
+      </mat-form-field> -->
       <mat-form-field>
         <input
           formControlName="host"

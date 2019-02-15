@@ -1,5 +1,5 @@
 <page-standard (clickBack)="clickBack()">
-  <div style="overflow-y: scroll; height: 100%; width: 100%;">
+  <scroll-padding>
     <mat-list>
       <ng-template ngFor let-level let-i="index" [ngForOf]="levels">
         <mat-list-item [ngClass]="(i%2 === 0) ? 'odd' : 'even'">
@@ -14,5 +14,5 @@
           </mat-list-item>
       </ng-template>
     </mat-list>
-  </div>
+  </scroll-padding>
 </page-standard>

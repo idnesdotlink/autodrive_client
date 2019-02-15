@@ -18,22 +18,26 @@
     style="height: 100%; width: 100%; display: flex;">
     <mat-tab>
       <ng-template mat-tab-label>Data Member</ng-template>
-      <div style="height: 200px; width: 200px;">
-        <!-- <qrcode *ngIf="memberId" [qrdata]="memberId" [size]="200" [level]="'H'" [usesvg]="false" [allowEmptyString]="allowEmptyString"></qrcode> -->
-      </div>
-      <ngx-qrcode  [qrc-element-type]="'svg'" [qrc-width]="50"></ngx-qrcode>
-      <ngx-barcode [bc-value]="memberId" [bc-display-value]="true"></ngx-barcode>
-      <button mat-raised-button>Salin Ke Clip</button>
-      <button mat-raised-button (click)="ck()">cetak kartu</button>
-      <!-- <form>
-        <mat-form-field>
-          <input
-            [(ngModel)]="member.name"
-            matInput
-            placeholder="Name"
-            name="member.name">
-        </mat-form-field>
-      </form> -->
+      <box-padding>
+        <scroll-padding [padding]="20">
+            <div style="height: 200px; width: 200px;">
+                <!-- <qrcode *ngIf="memberId" [qrdata]="memberId" [size]="200" [level]="'H'" [usesvg]="false" [allowEmptyString]="allowEmptyString"></qrcode> -->
+              </div>
+              <ngx-qrcode  [qrc-element-type]="'svg'" [qrc-width]="50"></ngx-qrcode>
+              <ngx-barcode [bc-value]="memberId" [bc-display-value]="true"></ngx-barcode>
+              <button mat-raised-button>Salin Ke Clip</button>
+              <button mat-raised-button (click)="ck()">cetak kartu</button>
+              <!-- <form>
+                <mat-form-field>
+                  <input
+                    [(ngModel)]="member.name"
+                    matInput
+                    placeholder="Name"
+                    name="member.name">
+                </mat-form-field>
+              </form> -->
+        </scroll-padding>
+      </box-padding>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Data Downline</ng-template>
@@ -41,9 +45,7 @@
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Grafik</ng-template>
-      <div>
         <member-line-chart></member-line-chart>
-      </div>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Tree</ng-template>

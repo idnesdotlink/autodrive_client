@@ -19,7 +19,12 @@ export class InstallComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder, private install: InstallService, private router: Router) {}
   onSubmit(e: Event) {
     if (this.configForm.invalid) return;
-    this.installing = this.install.install(this.f.host.value, this.f.port.value, this.f.key.value).subscribe(
+    let conf: any = {};
+    conf['host'] = this.f.host.value;
+    conf['key'] = this.f.key.value;
+    conf['port'] = this.f.port.value;
+    conf['secure'] = this.f.secure.value;
+    this.installing = this.install.install(conf).subscribe(
       (v) => {
         if(v) this.router.navigate(['/login'])
       }
@@ -36,9 +41,10 @@ export class InstallComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.configForm = this.formBuilder.group({
-      host: ['http://127.0.0.1', Validators.required],
+      host: ['127.0.0.1', Validators.required],
       port: [8000, Validators.required],
-      key: ['ae3f398d-254e-4b23-8a5e-92cf931a82b0', Validators.required]
+      key: ['ae3f398d-254e-4b23-8a5e-92cf931a82b0', Validators.required],
+      secure: [false, Validators.required]
     });
   }
 }

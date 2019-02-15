@@ -2,52 +2,46 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {LocalStorage} from '@ngx-pwa/local-storage'
 import {Injectable} from '@angular/core'
 import {Observable, of} from 'rxjs'
-import {map, first} from 'rxjs/operators'
+import {map, first, concatAll} from 'rxjs/operators'
 import {config} from '@configs'
 
-interface installConf {
-  host: string,
-  port: number,
-  key: string
+export interface BaseConfig {
+  secure: boolean;
+  host: string;
+  port: number;
+  key: string;
 }
 
 @Injectable()
 export class InstallService {
-  constructor(private http: HttpClient, private storage: LocalStorage) {
 
-  }
+  constructor(private http: HttpClient, private storage: LocalStorage) { }
 
-  conf(): Observable<installConf> {
-    return this.storage.getItem('installed').pipe(
-      first<installConf>()
+  installed(): Observable<BaseConfig> {
+    return this.storage.getItem('config').pipe(
+      first<BaseConfig>()
     )
   }
 
-  installed(): Observable<installConf> {
-    return this.storage.getItem('installed').pipe(
-      first<installConf>()
-    )
+  uninstall(): Observable<boolean> {
+    return this.storage.removeItem('config');
   }
 
-  install(host: string, port: number, key: string) {
-    this.http.post(`${host}:${port}/api/verify`, {key}, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      })
-    }).subscribe(
+  install(base: BaseConfig) {
+    let {host, secure, port, key} = base;
+    const protocol = secure ? 'https://' : 'http://'
+    const baseUrl = `${protocol}${host}:${port}`
+    const apiEndPoint = `/api/verify`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    })
+    const verify = this.http.post(baseUrl + apiEndPoint, {key}, {headers})
+    verify.subscribe(
       v => console.log(v),
       e => console.log(e),
-      () => console.log('c')
+      () => console.log('complete')
     )
-    return this.storage.setItem('installed', {host, port, key});
-  }
-
-  verify(url: string, ) {
-    this.http.post(`${url}/verify`, {}, {})
-  }
-
-  validate() {
-
+    return this.storage.setItem('config', base)
   }
 }

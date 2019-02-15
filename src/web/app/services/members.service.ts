@@ -37,11 +37,7 @@ export class MembersService {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
   });
-    return this.http.post(`${this.apiUrl}/members`, {
-
-    }, {
-      headers: headers
-    })
+    return this.http.post(`${this.apiUrl}/members`, {}, {headers})
     .pipe(
       map((response: any) => {
         let { meta, list } = response;

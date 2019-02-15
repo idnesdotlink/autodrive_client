@@ -6,10 +6,9 @@
     <ng-template #elseTemplate>
         <as-split direction="horizontal" [useTransition]="useTransition" (dragEnd)="dragEnd($event)">
             <div as-split-area order="0" [size]="splitSizeA" style="display: flex; height: 100%; width: 100%; overflow: hidden; flex-direction: row;">
-              <div style="flex: 1; display: block; height: 100%; width: 100%; overflow: hidden;">
-                <div class="col-1">
-                  <div style="display: block; height: 100%; width: 100%; overflow: auto">
-                    <box-padding padding="10">
+
+                    <box-padding>
+                      <scroll-padding padding="10">
                       <form class="example-form">
                           <div>
                             <mat-form-field class="example-full-width">
@@ -38,10 +37,9 @@
                           (change)="filterChange(filter[0], $event)">
                         </filter-box>
                         <button mat-stroked-button (click)="filtering()" >Filter</button>
+                      </scroll-padding>
                     </box-padding>
-                  </div>
-                </div><!-- .col-1 -->
-              </div>
+
             </div>
             <div as-split-area order="1" [size]="splitSizeB">
               <div class="col-2">
