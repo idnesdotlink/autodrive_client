@@ -7,15 +7,6 @@ import {first, mergeMap, takeUntil, map} from 'rxjs/operators'
 import {config} from '@configs'
 import env from '@environtment'
 
-interface conf {
-  base: {
-    host: string;
-    secure: boolean;
-    key: string;
-    port: number;
-  }
-}
-
 interface base {
   host: string;
   secure: boolean;
@@ -23,9 +14,18 @@ interface base {
   port: number;
 }
 
+interface api {
+  baseUrl: string;
+  endPoint: string[]
+}
+interface conf {
+  base: base;
+  api: api;
+}
+
 @Injectable()
 export class ApiService implements OnDestroy {
-  private ngUnsubscribe = new Subject();
+  private subject$ = new Subject();
 
   constructor(private http: HttpClient, private storage: LocalStorage) {
   }
@@ -49,7 +49,7 @@ export class ApiService implements OnDestroy {
   post(endPoint: string, data: any) {
     const source$ = this.baseUrl
     return source$.pipe(
-      mergeMap((url: string) => this.http.post(url + '/' +`${endPoint}`, {}).pipe(takeUntil(this.ngUnsubscribe)))
+      mergeMap((url: string) => this.http.post(url + '/' +`${endPoint}`, {}).pipe(takeUntil(this.subject$)))
     )
   }
 
@@ -57,8 +57,8 @@ export class ApiService implements OnDestroy {
   }
 
   cancel() {
-    this.ngUnsubscribe.next()
-    this.ngUnsubscribe.complete()
+    this.subject$.next()
+    this.subject$.complete()
   }
 
   ngOnDestroy() {

@@ -31,11 +31,11 @@ export class PushNotificationService {
   }
   public create (title: string, options?: PushNotificationOptions): Observable<any> {
     return new Observable((obs: any) => {
-       if (!this.checkCompatibility()) {
-         const err = 'Notifications are not available in this browser.';
-         console.error(err);
-         obs.error(err);
-         obs.complete();
+      if (!this.checkCompatibility()) {
+        const err = 'Notifications are not available in this browser.';
+        console.error(err);
+        obs.error(err);
+        obs.complete();
       }
 
       this.requestPermission().subscribe((perm: NotificationPermission) => {

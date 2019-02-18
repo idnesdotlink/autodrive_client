@@ -7,8 +7,8 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-bar [navs]="appNav" (logo)="opened = !opened"></app-bar>
-    <mat-drawer-container>
-      <router-outlet></router-outlet>
+    <mat-drawer-container [@fadeAnimation]="getRouterOutletState(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
     </mat-drawer-container>
   </mat-sidenav-content>
 </mat-sidenav-container>

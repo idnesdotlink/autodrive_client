@@ -32,6 +32,9 @@ export class AppBaseComponent {
   }
 
   public getRouterOutletState(outlet) {
+    // if(outlet.activatedRouteData.state)
+    // console.log({ab: outlet})
+
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
 

@@ -129,13 +129,13 @@ export class AdvancedPieChartComponent extends BaseChartComponent {
     this.colors = new ColorHelper(this.scheme, 'ordinal', this.domain, this.customColors);
   }
 
-  onActivate(event): void {
+  onActivate(event: Event): void {
     if (this.activeEntries.indexOf(event) > -1) return;
     this.activeEntries = [event, ...this.activeEntries];
     this.activate.emit({ value: event, entries: this.activeEntries });
   }
 
-  onDeactivate(event): void {
+  onDeactivate(event: Event): void {
     const idx = this.activeEntries.indexOf(event);
 
     this.activeEntries.splice(idx, 1);

@@ -31,18 +31,20 @@ const ARROW_LEFT_KEYCODE = 37;
 @Component({
   selector: 'context-menu-content',
   styles: [
-    `.passive {
-       display: block;
-       padding: 3px 20px;
-       clear: both;
-       font-weight: normal;
-       line-height: @line-height-base;
-       white-space: nowrap;
-     }
+    `
+    .passive {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: @line-height-base;
+        white-space: nowrap;
+    }
     .hasSubMenu:before {
       content: "\u25B6";
       float: right;
-    }`,
+    }
+    `,
   ],
   templateUrl: 'template.html'
 })

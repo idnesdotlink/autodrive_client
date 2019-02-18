@@ -1,26 +1,14 @@
 import {Component} from '@angular/core'
+import {chartColorScheme} from '@mock/chartColorScheme'
 
 @Component({
   selector: 'member-line-chart',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss'],
   preserveWhitespaces: false
 })
-export class MemberLineChartComponent {
+export class ChartLineComponent {
 
-  colorScheme = {
-    domain: [
-      '#FFB300',
-      '#E64A19',
-      '#76ff03',
-      '#2979ff',
-      '#EC407A',
-      '#BA68C8',
-      '#fdd835',
-      '#0091ea',
-      '#ff8f00'
-    ]
-  };
+  colorScheme = chartColorScheme;
 
   results: any[] =[
     {
@@ -78,6 +66,5 @@ export class MemberLineChartComponent {
     }
   ];
 
-  onSelect(e: any) {
-  }
+  onSelect(e: any) { }
 }

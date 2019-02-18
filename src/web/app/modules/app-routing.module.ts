@@ -25,13 +25,16 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full',
+    pathMatch: 'full'
 
   },
   {
     path: 'login',
     component: Login,
-    canActivate: [InstallGuard]
+    canActivate: [InstallGuard],
+    data: {
+      state: 'login'
+    }
   },
   {
     path: 'intro',
@@ -42,6 +45,18 @@ const routes: Routes = [
     component: InstallPage
   },
   {
+    path: 'load',
+    component: AppBase,
+    // loadChildren: '@modules/load.module#LoadModule?chunkName=lazy'
+    loadChildren: () => new Promise(function (resolve, reject) {
+      (require as any).ensure([], function (require: any) {
+        resolve(require('@modules/load.module')['LoadModule']);
+      }, function () {
+        reject({ loadChunkError: true });
+      }, 'lazy');
+    })
+  },
+  {
     path: 'admin',
     component: AppBase,
     canActivate: [InstallGuard, AuthGuard],
@@ -49,15 +64,24 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomePage
+        component: HomePage,
+        data: {
+          state: 'home'
+        }
       },
       {
         path: 'account',
-        component: AccountHome
+        component: AccountHome,
+        data: {
+          state: 'account'
+        }
       },
       {
         path: 'account/edit',
-        component: AccountEdit
+        component: AccountEdit,
+        data: {
+          state: 'account'
+        }
       },
       {
         path: 'levels/:id',
@@ -107,7 +131,8 @@ const routes: Routes = [
       .forRoot(
         routes,
         {
-          useHash: true
+          useHash: true,
+          enableTracing: true
         }
       )
   ],

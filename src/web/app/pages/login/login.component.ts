@@ -64,4 +64,8 @@ export class LoginComponent implements OnInit {
         }
       );
   }
+
+  load() {
+    this.router.navigate(['/load'])
+  }
 }

@@ -13,14 +13,13 @@ import {LogoLine} from '@components/logo-line'
 import {LogoText} from '@components/logo-text'
 import {PageBottomSheet} from '@components/page-bottom-sheet'
 import {PageStandard} from '@components/page-standard'
-import {PageTable} from '@components/page-table'
 import {SnackbarNotification} from '@components/snackbar-notification'
 import {HomeCard} from '@components/home-card'
 import {SvgSvg} from '@components/svg-svg'
 import {TreeViewer} from '@components/tree-viewer'
 import {MemberTable} from '@components/member-table'
-import {MemberDonutChart} from '@components/member-donut-chart'
-import {MemberLineChart} from '@components/member-line-chart'
+import {ChartDonut} from '@components/chart-donut'
+import {ChartLine} from '@components/chart-line'
 import {ChartBar} from '@components/chart-bar'
 import {ChartBarGroup} from '@components/chart-bar-group'
 import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-overlay'
@@ -44,14 +43,13 @@ import {ScrollPadding} from '@components/scroll-padding'
     LogoText,
     PageBottomSheet,
     PageStandard,
-    PageTable,
     SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
     MemberTable,
-    MemberDonutChart,
-    MemberLineChart,
+    ChartDonut,
+    ChartLine,
     ChartBarGroup,
     ChartBar,
     HasOverlay,
@@ -75,14 +73,13 @@ import {ScrollPadding} from '@components/scroll-padding'
     LogoText,
     PageBottomSheet,
     PageStandard,
-    PageTable,
     SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
     MemberTable,
-    MemberDonutChart,
-    MemberLineChart,
+    ChartDonut,
+    ChartLine,
     ChartBarGroup,
     ChartBar,
     HasOverlay,

@@ -1,12 +1,12 @@
 import {Component} from '@angular/core'
+import {chartColorScheme} from '@mock/chartColorScheme'
 
 @Component({
   selector: 'member-donut-chart',
   templateUrl: 'template.html',
-  styleUrls: ['style.scss'],
   preserveWhitespaces: false
 })
-export class MemberDonutChartComponent {
+export class ChartDonutComponent {
 
   results: any[] = [
     {
@@ -55,10 +55,7 @@ export class MemberDonutChartComponent {
     }
   ];
 
-  colorScheme = {
-    domain: ['#FFB300', '#E64A19', '#76ff03', '#2979ff', '#EC407A', '#BA68C8', '#fdd835', '#0091ea', '#ff8f00']
-  };
+  colorScheme = chartColorScheme;
 
-  onSelect(e: any) {
-  }
+  onSelect(e: any) { }
 }

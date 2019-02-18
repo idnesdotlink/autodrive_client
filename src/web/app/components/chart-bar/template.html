@@ -1,17 +1,19 @@
 <ng-template [ngIf]="mode === 'vertical'">
   <ngx-charts-bar-vertical
-  [animations]="false"
   [view]="[250, 250]"
+  [animations]="true"
   [scheme]="colorScheme"
-  [results]="bsingle"
+  [results]="results"
   [gradient]="false"
   [xAxis]="false"
   [yAxis]="false"
   [legend]="false"
   [showXAxisLabel]="false"
-  [showGridLines]="false"
+  [showGridLines]="true"
   [showYAxisLabel]="false"
   [roundEdges]="false"
+  [showDataLabel]="false"
+  [barPadding]="20"
   [showDataLabel]="false"
   (select)="onSelect($event)">
 </ngx-charts-bar-vertical>
@@ -22,8 +24,8 @@
   [view]="[250, 250]"
   [animations]="false"
   [scheme]="colorScheme"
-  [results]="bsingle"
-  [gradient]="gradient"
+  [results]="results"
+  [gradient]="false"
   [xAxis]="false"
   [yAxis]="false"
   [legend]="false"
@@ -32,6 +34,7 @@
   [showYAxisLabel]="false"
   [roundEdges]="false"
   [showDataLabel]="false"
+  [barPadding]="20"
   (select)="onSelect($event)">
 </ngx-charts-bar-horizontal>
 </ng-template>

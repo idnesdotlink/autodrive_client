@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core'
 import {LocalStorage} from '@ngx-pwa/local-storage'
 import {map, filter, flatMap, mergeMap, toArray} from 'rxjs/operators'
 import {SubscriptionLike, from, of, observable} from 'rxjs'
-import { isString } from 'util';
 
 @Injectable()
 export class CacheService {
