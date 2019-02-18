@@ -57,12 +57,6 @@ const rules = [
       'angular2-template-loader'
     ]
   },
-  /* {
-    test: /\.ts$/,
-    use: [
-      'angular-router-loader'
-    ]
-  }, */
   {
     test: /\.html$/,
     use: [

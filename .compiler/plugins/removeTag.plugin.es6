@@ -10,7 +10,10 @@ class RemoveTag {
           'remove-tag',
           (data, cb) => {
             const $ = cheerio.load(data.html)
+            $('html').find('head').append('<script rel="preload" as="script" src="vendors~lazy.chunk.js"></script>')
+            $('html').find('head').append('<script rel="preload" as="script" src="lazy.chunk.js"></script>')
             $('html').find('script[src="styles.js"]').remove()
+            $('html').find('script[src="fonts.js"]').remove()
             data.html = $.html();
             cb(null, data);
           }

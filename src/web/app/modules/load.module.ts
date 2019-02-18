@@ -6,30 +6,29 @@ import {ComponentsModule} from '@modules/components.module'
 import {InRoutingModule} from '@modules/in-routing.module'
 import {LazyComponent} from '@components/lazy-component'
 // import {MinimumMaterialModule} from '@modules/minimum-material.module'
-// import {InstallPage} from '@pages/install'
 import { HomePage } from '@pages/home'
 import { AppBase } from '@components/app-base'
+import { AccountHome, AccountEdit } from '@pages/account'
+import { LevelDetail, LevelHome, LevelEdit } from '@pages/levels'
+import { MemberDetail, MemberHome, MemberStore } from '@pages/members'
+import { Preference } from '@pages/preference'
 @NgModule({
   declarations: [
     LazyComponent,
     AppBase,
     // InstallPage,
-    HomePage
+    HomePage,
+    AccountHome, AccountEdit,
+    LevelDetail, LevelHome, LevelEdit,
+    MemberDetail, MemberHome, MemberStore,
+    Preference
   ],
   imports: [
     CommonModule,
     ComponentsModule,
-    // BaseModule,
-    // ComponentsModule,
-    // RouterModule,
     InRoutingModule,
-    // LazyComponent
   ],
   exports: [
-    // CommonModule,
-    // RouterModule,
-    InRoutingModule,
-    // LazyComponent
   ]
 })
 export class LoadModule { }

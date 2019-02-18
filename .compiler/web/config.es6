@@ -19,6 +19,7 @@ const mainTs = path.join(webSrcPath, mainTsFile);
 const polyfillsTsFile = (isDev) ? 'polyfills.ts' : 'polyfills.prod.ts';
 const polyfillsTs = path.join(webSrcPath, polyfillsTsFile);
 const vendorTs = path.join(webSrcPath, 'vendor.ts');
+const fontsTs = path.join(webSrcPath, 'fonts.ts')
 const styleTs = path.join(webSrcPath, 'styles.ts')
 const templateFile = path.join(webSrcPath, 'main.ejs');
 const outputPath = (isWeb) ? webDistPath : electronDistPath;
@@ -35,13 +36,14 @@ let config = {
     polyfills: [polyfillsTs],
     vendor: [vendorTs],
     main: [mainTs],
-    'styles': [styleTs]
+    fonts: [fontsTs],
+    styles: [styleTs]
   },
   output: {
     path: outputPath,
     publicPath: '',
     filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[name].chunk.js'
   },
   module: { rules },
   resolve: {

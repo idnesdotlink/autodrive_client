@@ -25,24 +25,13 @@ class ResourceHintWebpackPlugin {
   }
 
   apply (compiler) {
-    // Hook into the html-webpack-plugin processing
-    if (compiler.hooks) {
-      // Webpack 4+ Plugin System
-      compiler.hooks.compilation.tap('ResourceHintWebpackPlugin', compilation => {
-        if (compilation.hooks.htmlWebpackPluginAlterAssetTags) {
-          compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync('ResourceHintWebpackPluginAlterAssetTags',
-            resourceHintWebpackPluginAlterAssetTags
-          );
-        }
-      });
-    } else {
-      // Webpack 1-3 Plugin System
-      compiler.plugin('compilation', compilation => {
-        compilation.plugin('html-webpack-plugin-alter-asset-tags',
+    compiler.hooks.compilation.tap('ResourceHintWebpackPlugin', compilation => {
+      if (compilation.hooks.htmlWebpackPluginAlterAssetTags) {
+        compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync('ResourceHintWebpackPluginAlterAssetTags',
           resourceHintWebpackPluginAlterAssetTags
         );
-      });
-    }
+      }
+    });
   }
 }
 
