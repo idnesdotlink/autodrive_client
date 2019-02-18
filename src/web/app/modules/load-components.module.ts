@@ -1,14 +1,19 @@
 import {NgModule} from '@angular/core'
 import {ThirdPartyModule} from '@modules/third-party.module'
 // components
-import {MinComponentsModule} from '@modules/min-components.module'
 import {AppBar} from '@components/app-bar'
 import {AppNav} from '@components/app-nav'
+import {BoxPadding} from '@components/box-padding'
 import {ColorPicker} from '@components/color-picker'
 import {ConfirmDialog} from '@components/confirm-dialog'
 import {FilterBox} from '@components/filter-box'
 import {IconFontList} from '@components/icon-font-list'
+import {LogoImage} from '@components/logo-image'
+import {LogoLine} from '@components/logo-line'
+import {LogoText} from '@components/logo-text'
 import {PageBottomSheet} from '@components/page-bottom-sheet'
+import {PageStandard} from '@components/page-standard'
+import {SnackbarNotification} from '@components/snackbar-notification'
 import {HomeCard} from '@components/home-card'
 import {SvgSvg} from '@components/svg-svg'
 import {TreeViewer} from '@components/tree-viewer'
@@ -19,26 +24,26 @@ import {ChartBar} from '@components/chart-bar'
 import {ChartBarGroup} from '@components/chart-bar-group'
 import {HasOverlay, overlayService, ExampleOverlay} from '@components/example-overlay'
 import {SplitInput, SplitInputDirective} from '@components/split-input'
+import {ScrollPadding} from '@components/scroll-padding'
 
 @NgModule({
   imports: [
     ThirdPartyModule,
-    MinComponentsModule
   ],
   declarations: [
     AppBar,
     AppNav,
-    // BoxPadding,
+    BoxPadding,
     ColorPicker,
     ConfirmDialog,
     FilterBox,
     IconFontList,
-    // LogoImage,
-    // LogoLine,
-    // LogoText,
+    LogoImage,
+    LogoLine,
+    LogoText,
     PageBottomSheet,
-    // PageStandard,
-    // SnackbarNotification,
+    PageStandard,
+    SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
@@ -51,25 +56,24 @@ import {SplitInput, SplitInputDirective} from '@components/split-input'
     ExampleOverlay,
     SplitInput,
     SplitInputDirective,
-    // ScrollPadding
+    ScrollPadding
   ],
   exports: [
     ThirdPartyModule,
-    MinComponentsModule,
     // components
     AppBar,
     AppNav,
-    // BoxPadding,
+    BoxPadding,
     ColorPicker,
     ConfirmDialog,
     FilterBox,
     IconFontList,
-    // LogoImage,
-    // LogoLine,
-    // LogoText,
+    LogoImage,
+    LogoLine,
+    LogoText,
     PageBottomSheet,
-    // PageStandard,
-    // SnackbarNotification,
+    PageStandard,
+    SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
@@ -82,12 +86,12 @@ import {SplitInput, SplitInputDirective} from '@components/split-input'
     ExampleOverlay,
     SplitInput,
     SplitInputDirective,
-    // ScrollPadding
+    ScrollPadding
   ],
   entryComponents: [
     ConfirmDialog,
     PageBottomSheet,
-    // SnackbarNotification,
+    SnackbarNotification,
     ExampleOverlay
   ],
   providers: [

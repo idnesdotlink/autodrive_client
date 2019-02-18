@@ -43,7 +43,7 @@ export class MemberTableComponent implements OnInit, OnDestroy, pageStandard {
   // datas = [];
   done = [];
   expression = true;
-  private dataSource: MatTableDataSource<[]>
+  dataSource: MatTableDataSource<[]>
 
 
   // dataSource = new MatTableDataSource(this.datas);

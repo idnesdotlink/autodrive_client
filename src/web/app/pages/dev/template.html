@@ -5,18 +5,21 @@
     style="height: 100%; width: 100%; display: flex;">
     <mat-tab>
       <ng-template mat-tab-label>Icon Helper</ng-template>
-      <box-padding>
-        <div style="overflow-y: auto; height: 100%; width: 100%;">
-          <icon-font-list></icon-font-list>
-        </div>
-      </box-padding>
+      <ng-template matTabContent>
+        <box-padding>
+          <div style="overflow-y: auto; height: 100%; width: 100%;">
+            <icon-font-list></icon-font-list>
+          </div>
+        </box-padding>
+      </ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Log</ng-template>
-      [Data Downline]
+      <ng-template matTabContent>Data Downline</ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Server Log</ng-template>
+      <ng-template matTabContent>Data Server</ng-template>
     </mat-tab>
   </mat-tab-group>
 </page-standard>

@@ -7,7 +7,7 @@ import {trigger, transition, animate, group, style, query} from '@angular/animat
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
   animations: [
-    trigger('routerAnimation', [
+    /* trigger('routerAnimation', [
       transition(
         '* <=> *', [
           query(':leave .login-box',
@@ -26,7 +26,7 @@ import {trigger, transition, animate, group, style, query} from '@angular/animat
           )
         ]
       )
-    ])
+    ]) */
   ],
   preserveWhitespaces: false,
   // host: {'[@routerAnimation]': 'getRouterOutletState($outlet)'}

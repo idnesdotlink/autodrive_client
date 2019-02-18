@@ -5,7 +5,6 @@ import {NgModule} from '@angular/core'
 // third party module
 import {AngularSplitModule} from 'angular-split'
 import {ClipboardModule} from 'ngx-clipboard'
-// import {DigitOnlyModule} from '@uiowa/digit-only'
 
 // extra-module
 import {NgxChartsModule} from '@extra/chart'

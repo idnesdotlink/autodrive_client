@@ -36,7 +36,7 @@ export class InstallComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.installing.unsubscribe();
+    if(this.installing !== undefined) this.installing.unsubscribe();
   }
 
   ngOnInit() {

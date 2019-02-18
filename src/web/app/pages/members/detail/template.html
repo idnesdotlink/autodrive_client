@@ -1,55 +1,39 @@
 <page-standard (clickBack)="clickBack($event)">
-  <div *ngIf="member">
-    <h2>{{ member.name | uppercase }} Details</h2>
-    <button
-      mat-button
-      (click)="goBack()">
-      go back
-    </button>
-    <button
-      mat-button
-      (click)="goBack()">
-      Add Downline
-    </button>
-  </div>
-
   <mat-tab-group
     [animationDuration]="'0ms'"
     style="height: 100%; width: 100%; display: flex;">
     <mat-tab>
       <ng-template mat-tab-label>Data Member</ng-template>
-      <box-padding>
-        <scroll-padding [padding]="20">
-            <div style="height: 200px; width: 200px;">
-                <!-- <qrcode *ngIf="memberId" [qrdata]="memberId" [size]="200" [level]="'H'" [usesvg]="false" [allowEmptyString]="allowEmptyString"></qrcode> -->
+      <ng-template matTabContent>
+        <box-padding>
+          <scroll-padding [padding]="20">
+              <div style="height: 200px; width: 200px;">
               </div>
-              <ngx-qrcode  [qrc-element-type]="'svg'" [qrc-width]="50"></ngx-qrcode>
-              <ngx-barcode [bc-value]="memberId" [bc-display-value]="true"></ngx-barcode>
-              <button mat-raised-button>Salin Ke Clip</button>
-              <button mat-raised-button (click)="ck()">cetak kartu</button>
-              <!-- <form>
-                <mat-form-field>
-                  <input
-                    [(ngModel)]="member.name"
-                    matInput
-                    placeholder="Name"
-                    name="member.name">
-                </mat-form-field>
-              </form> -->
-        </scroll-padding>
-      </box-padding>
+                <ngx-qrcode  [qrc-element-type]="'svg'" [qrc-width]="50"></ngx-qrcode>
+                <ngx-barcode [bc-value]="memberId" [bc-display-value]="true"></ngx-barcode>
+                <button mat-raised-button>Salin Ke Clip</button>
+                <button mat-raised-button (click)="ck()">cetak kartu</button>
+          </scroll-padding>
+        </box-padding>
+      </ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Data Downline</ng-template>
-      <member-table></member-table>
+      <ng-template matTabContent>
+        <member-table></member-table>
+      </ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Grafik</ng-template>
+      <ng-template matTabContent>
         <member-line-chart></member-line-chart>
+      </ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>Tree</ng-template>
-      <tree-viewer></tree-viewer>
+      <ng-template matTabContent>
+        <tree-viewer></tree-viewer>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
 </page-standard>
