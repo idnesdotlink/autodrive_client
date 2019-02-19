@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output, OnDestroy, Injectable} from '@angular/c
 import {Router} from '@angular/router'
 import {SidenavService} from '@services/sidenav.service'
 import {navigation} from '@helpers'
-import { fadeAnimation } from '@animations/fadeAnimation';
+// import { fadeAnimation } from '@animations/fadeAnimation';
 @Component({
   selector: 'app-base',
   templateUrl: 'template.html',
@@ -11,9 +11,9 @@ import { fadeAnimation } from '@animations/fadeAnimation';
   providers: [
     SidenavService
   ],
-  animations: [
+  /* animations: [
     fadeAnimation
-  ]
+  ] */
 })
 @Injectable()
 export class AppBaseComponent {
