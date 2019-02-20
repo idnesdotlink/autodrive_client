@@ -6,7 +6,10 @@
     Sidenav content
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-bar [navs]="appNav" (logo)="opened = !opened"></app-bar>
+    <app-bar
+      [navs]="appNav"
+      (logo)="opened = !opened">
+    </app-bar>
     <mat-drawer-container>
       <router-outlet #outlet="outlet"></router-outlet>
     </mat-drawer-container>

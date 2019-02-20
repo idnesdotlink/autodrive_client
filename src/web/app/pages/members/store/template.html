@@ -102,8 +102,7 @@
     <mat-step [stepControl]="addressGroup">
       <ng-template matStepLabel>Alamat</ng-template>
       <box-padding>
-        <div style="height: 100%; width: 100%; overflow-y: auto; display: block;">
-          <div style="padding: 20px;">
+        <scroll-padding padding="20">
             <form [formGroup]="addressGroup">
               <ng-template ngFor let-select [ngForOf]="addressSelect">
                 <div>
@@ -135,8 +134,7 @@
                 <button mat-stroked-button matStepperNext>Next</button>
               </div>
             </form>
-          </div>
-        </div>
+        </scroll-padding>
       </box-padding>
     </mat-step>
     <mat-step>
