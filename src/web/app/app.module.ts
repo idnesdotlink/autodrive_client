@@ -5,12 +5,12 @@ import { BaseModule } from '@modules/base.module'
 import { NgModule } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
-// import { ComponentsModule } from '@modules/components.module'
 import { MinComponentsModule } from '@modules/min-components.module'
 import { AppRoutingModule } from '@modules/app-routing.module'
 import { AuthenticationService } from '@services/authentication.service'
 import { AuthenticationInterceptorService } from '@services/authentication-interceptor.service';
 import { MockRequestInterceptorService } from '@services/mock-request-interceptor.service';
+import { ApiService } from '@services/api.service'
 
 // components
 import { AppRootComponent } from '@components/app-root'
@@ -33,6 +33,7 @@ import { CacheService } from '@services/cache.service'
     AppRootComponent
   ],
   providers: [
+    ApiService,
     InstallService,
     CacheService,
     AuthenticationService,

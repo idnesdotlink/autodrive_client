@@ -1,26 +1,39 @@
-<div>
   <form style="background-color: transparent" (ngSubmit)="onSubmit()">
     <div [formGroup]="form">
-    <mat-form-field style="width: 100%;" appearance="outline">
-      <mat-label>Pencarian Anggota</mat-label>
-      <input
-        formControlName="search"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-        matInput
-        maxlength="64"/>
-        <button *ngIf="searchText" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
-          <mat-icon>close</mat-icon>
-        </button>
-        <mat-hint align="start"><strong>Hit Enter</strong> {{ searchText }}</mat-hint>
-    </mat-form-field>
-    <mat-radio-group>
-      <mat-radio-button value="2">Nama</mat-radio-button>
-      <mat-radio-button value="1">ID Anggota</mat-radio-button>
-    </mat-radio-group>
-
+    <mat-radio-group formControlName="by">
+        <ng-template ngFor let-i [ngForOf]="['name', 'id', 'phone']">
+          <mat-radio-button [value]="i">{{ i | titlecase }}</mat-radio-button>
+        </ng-template>
+      </mat-radio-group>
+      <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Pencarian Anggota</mat-label>
+        <input
+          formControlName="search"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          matInput
+          [minlength]="3"
+          [maxlength]="maxLength"/>
+          <button *ngIf="searchText" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint align="start"><strong>Hit Enter</strong></mat-hint>
+          <mat-hint align="end">{{ searchText.length }}/{{maxLength}}</mat-hint>
+      </mat-form-field>
+      <button mat-stroked-button>Cari</button>
     </div>
   </form>
-</div>
+  <mat-list role="list">
+  <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+    <mat-list-item>
+      {{item}}
+    </mat-list-item>
+  </ng-template>
+</mat-list>
+<mat-paginator
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10]">
+</mat-paginator>
