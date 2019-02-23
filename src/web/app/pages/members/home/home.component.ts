@@ -9,7 +9,7 @@ import {pageStandard} from '@components/page-standard'
 
 // services
 import {expandTableRows} from '@animations/expandTableRow'
-import {MembersService} from '@services/members.service'
+import {MembersService} from '@services/members.api.service'
 
 @Component({
   selector: 'page-member-home',

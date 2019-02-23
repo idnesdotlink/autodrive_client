@@ -21,6 +21,7 @@ const alias = {
   '@pages': path.join(webSrcPath, 'app', 'pages'),
   '@services': path.join(webSrcPath, 'app', 'services'),
   '@guards': path.join(webSrcPath, 'app', 'guards'),
-  '@extra': path.join(webSrcPath, 'app', 'extra')
+  '@extra': path.join(webSrcPath, 'app', 'extra'),
+  '@db': path.join(webSrcPath, 'app', 'db')
 };
 export { alias };

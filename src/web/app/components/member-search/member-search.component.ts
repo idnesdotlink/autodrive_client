@@ -3,21 +3,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MemberSearchService, IMemberSearch } from '@services/memberSearch.service'
 import { SubscriptionLike } from 'rxjs'
 import { MatPaginatorIntl } from '@angular/material/paginator'
-
+import { MemberIdbServices } from '@services/members.idb.service'
 @Injectable()
 export class LocalIntl extends MatPaginatorIntl {
-  constructor() {super();
-    // const intl =  new MatPaginatorIntl()
-    this.itemsPerPageLabel = 'orang per page:'
+  constructor() {
+    super();
+    this.itemsPerPageLabel = 'orang per halaman:'
     this.firstPageLabel = 'hal pertama'
     this.previousPageLabel = 'hal sebelumnya'
     this.getRangeLabel = (page: number, pageSize: number, length: number) => {
       if (length == 0 || pageSize == 0) { return `0 van ${length}`; }
-
       length = Math.max(length, 0);
-
       const startIndex = page * pageSize;
-
       // If the start index exceeds the list length, do not try and fix the end index to the end.
       const endIndex = startIndex < length ?
           Math.min(startIndex + pageSize, length) :
@@ -35,6 +32,7 @@ export class LocalIntl extends MatPaginatorIntl {
     'style.scss'
   ],
   providers: [
+    MemberIdbServices,
     MemberSearchService,
     {
       provide: MatPaginatorIntl,
@@ -51,7 +49,8 @@ export class MemberSearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private member: MemberSearchService
+    private member: MemberSearchService,
+    private memberIdb: MemberIdbServices
   ) {
     this.createFormGroup()
   }
@@ -64,7 +63,9 @@ export class MemberSearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.form.get('by').valueChanges.subscribe(
+      val => console.log(val)
+    )
   }
 
   ngOnDestroy() {
@@ -72,9 +73,20 @@ export class MemberSearchComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+
+    this.memberIdb.byId().subscribe(
+      (v) => console.log(v)
+    )
+
+    this.items = []
     this.subs = this.member.search(this.searchText, this.searchBy).subscribe(
       (v) => this.items = v
     )
+  }
+
+  keyDownFunction(e: Event) {
+    // console.log(e)
+    this.onSubmit()
   }
 
   clear() {

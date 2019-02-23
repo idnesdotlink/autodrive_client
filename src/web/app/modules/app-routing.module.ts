@@ -9,7 +9,7 @@ import { InstallGuard } from '@guards/install.guard'
 // pages
 import { Intro } from '@pages/intro'
 import { Login } from '@pages/login'
-// import { InstallPage } from '@pages/install'
+import { InstallPage } from '@pages/install'
 
 import { BaseModule } from '@modules/base.module'
 import { MinComponentsModule } from '@modules/min-components.module'
@@ -34,25 +34,16 @@ const routes: Routes = [
     path: 'intro',
     component: Intro
   },
-  /* {
+  {
     path: 'install',
     component: InstallPage
-  }, */
+  },
   {
     path: 'admin',
-
-      // ALTERNATIVE 1
-      // loadChildren: () => new Promise(function (resolve, reject) {
-      //   (require as any).ensure([], function (require: any) {
-      //     resolve(require('@modules/load.module')['LoadModule']);
-      //   }, function () {
-      //     reject({loadChunkError: true });
-      //   }, 'lazy');
-      // })
     loadChildren: () => new Promise(
       function (resolve, reject) {
         import(
-          /* webpackChunkName: "lazy" */
+          /* webpackChunkName: "load" */
           '@modules/load.module'
         )
           .then(function (module: any) {
@@ -83,7 +74,7 @@ const routes: Routes = [
   declarations: [
     Intro,
     Login,
-    // InstallPage
+    InstallPage
   ],
   exports: [
     RouterModule,

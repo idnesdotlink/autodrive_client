@@ -13,6 +13,11 @@ export class MemberSearchService {
   constructor(private api: ApiService) {
   }
   search(search?: string, by?: string) {
+    const a = this.api.post('api/test', {test: 'ab'}).subscribe(
+      val => console.log(val)
+    )
+
+    // a.unsubscribe();
     console.log(by)
     return from<IMemberSearch[]>([
       {

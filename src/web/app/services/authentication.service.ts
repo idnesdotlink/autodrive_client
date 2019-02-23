@@ -37,7 +37,8 @@ export class AuthenticationService {
     this.headers = new HttpHeaders(
       {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
       }
     );
   }
@@ -69,6 +70,12 @@ export class AuthenticationService {
    * @param password
    */
   login(username: string, password: string) {
+
+    this.http.get<any>(`http://127.0.0.1:8000/oauth/clients`).subscribe(
+      v => console.log(v),
+      e => console.log(e)
+    )
+
     return this.http.post<any>(`${config.apiUrl}/users/authenticate`, {
       password: password,
       email: username
@@ -78,6 +85,7 @@ export class AuthenticationService {
           if (response && response.access_token) {
             const access_token = response.access_token;
             const decoded: DecodedJwt = jwtDecode(access_token);
+            console.log(decoded)
             const { sub, aud } = decoded;
             const user: User = {
               id: sub,

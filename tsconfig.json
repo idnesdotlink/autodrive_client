@@ -88,6 +88,12 @@
       ],
       "@extra": [
         "src/web/app/extra"
+      ],
+      "@db/*": [
+        "src/web/app/db/*"
+      ],
+      "@db": [
+        "src/web/app/db"
       ]
     },
     "resolveJsonModule": true,

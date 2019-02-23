@@ -27,8 +27,7 @@ interface conf {
 export class ApiService implements OnDestroy {
   private subject$ = new Subject();
 
-  constructor(private http: HttpClient, private storage: LocalStorage) {
-  }
+  constructor(private http: HttpClient, private storage: LocalStorage) { }
 
   registry() {}
 
@@ -49,7 +48,7 @@ export class ApiService implements OnDestroy {
   post(endPoint: string, data: any) {
     const source$ = this.baseUrl
     return source$.pipe(
-      mergeMap((url: string) => this.http.post(url + '/' +`${endPoint}`, {}).pipe(takeUntil(this.subject$)))
+      mergeMap((url: string) => this.http.post(url + '/' +`${endPoint}`, data).pipe(takeUntil(this.subject$)))
     )
   }
 
