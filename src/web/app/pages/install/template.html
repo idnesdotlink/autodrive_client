@@ -1,17 +1,7 @@
-<box-padding padding="20" background="black">
-  <div style="color: white;">
+<box-padding padding="50" background="black">
+  <div>
     <form [formGroup]="configForm" (ngSubmit)="onSubmit()" autocomplete="off">
-        <mat-checkbox formControlName="secure">Check me!</mat-checkbox>
-<!--     <mat-form-field>
-        <input
-          formControlName="secure"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-          matInput
-          placeholder="Secure">
-      </mat-form-field> -->
+      <mat-checkbox formControlName="secure">https</mat-checkbox>
       <mat-form-field>
         <input
           formControlName="host"
@@ -42,7 +32,12 @@
             matInput
             placeholder="Key">
       </mat-form-field>
-      <button mat-stroked-button>Install</button>
+      <div class="action">
+        <div class="fill"></div>
+        <button mat-raised-button color="primary">Install</button>
+      </div>
     </form>
   </div>
+  <p>process: downloading</p>
+  <mat-progress-bar [value]="50"></mat-progress-bar>
 </box-padding>

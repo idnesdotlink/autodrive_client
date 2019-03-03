@@ -1,19 +1,27 @@
-import {Injectable} from '@angular/core'
-import {Router, CanActivate, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router'
-import {map} from 'rxjs/operators'
-import {AuthenticationService} from '@services/authentication.service'
+import { Injectable } from '@angular/core'
+import {
+  Router,
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanActivateChild,
+} from '@angular/router'
+import { map } from 'rxjs/operators'
+import { AuthenticationCacheService } from '@services/authenticationCache.service'
+import { ApiService } from '@services/api.service'
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivateChild, CanActivate {
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authCache: AuthenticationCacheService,
+    private api: ApiService
   ) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.authenticationService.get_access_token_observable.pipe(
+  private _check_token(state: RouterStateSnapshot) {
+    return this.authCache.access_token$.pipe(
       map(access_token => {
-        if (access_token) {
+        if (access_token !== null) {
           return true;
         } else {
           this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
@@ -21,5 +29,13 @@ export class AuthGuard implements CanActivate {
         }
       })
     );
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this._check_token(state)
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this._check_token(state)
   }
 }

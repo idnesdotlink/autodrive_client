@@ -1,83 +1,102 @@
-import {Injectable} from '@angular/core'
-import {LocalStorage} from '@ngx-pwa/local-storage'
-import {map, filter, flatMap, mergeMap, toArray} from 'rxjs/operators'
-import {SubscriptionLike, from, of, observable} from 'rxjs'
+import { Injectable } from '@angular/core'
+import { LocalStorage } from '@ngx-pwa/local-storage'
+import { map, filter, flatMap, mergeMap, toArray } from 'rxjs/operators'
+import { from, Observable } from 'rxjs'
 
-@Injectable()
+@Injectable(
+  {
+    providedIn: 'root'
+  }
+)
 export class CacheService {
 
   private _group: string;
 
-  constructor(private localStorage: LocalStorage) {}
+  constructor(private localStorage: LocalStorage) { }
 
-  set group(value: string) {
-    this._group = `__${value}`
-  }
-
-  get group() {
-    return this._group;
-  }
-
-  private filterGroup(key: string) {
-    return key.indexOf('.') > 1 && key.split('.')[0] === this.group
+  private _filterGroup(key: string) {
+    return (key.indexOf('.') > 1) && (key.split('.')[0] === this._group)
   }
 
   private _key(key: string) {
-    return `${this.group}.${key}`
+    return `${this._group}.${key}`
   }
 
-  count() {
-    return this.keys().pipe(
+  private _realKeys() {
+    return this.localStorage
+      .keys()
+      .pipe(
+        flatMap(key => from(key)),
+        filter(key => this._filterGroup(key)),
+        toArray()
+      )
+  }
+
+  group(value: string) {
+    this._group = `__${value}`
+    return this
+  }
+
+  count(): Observable<number> {
+    return this.keys.pipe(
       map(keys => keys.length)
     )
   }
 
-  realKeys() {
-    return this.localStorage.keys().pipe(
-      flatMap(key => from(key)),
-      filter(key => this.filterGroup(key)),
-      toArray()
-    )
+  get(key: string): Observable<string> {
+    return this.localStorage
+      .getItem(this._key(key))
+      .pipe(
+        map(
+          (value: any) => {
+            return value
+          }
+        )
+      )
   }
 
-  get(key: string) {
-    return this.localStorage.getItem(this._key(key))
-  }
-
-  keys() {
-    return this.realKeys().pipe(
+  get keys(): Observable<string[]> {
+    return this._realKeys().pipe(
       flatMap(key => from(key)),
       map(key => key.split('.')[1]),
       toArray()
     )
   }
 
-  values() {
-    return this.keys()
-    .pipe(
-      flatMap(key => from(key)),
-      mergeMap(key => this.get(key))
-    )
+  get values(): Observable<string> {
+    return this.keys
+      .pipe(
+        flatMap(key => from(key)),
+        mergeMap(key => this.get(key))
+      )
   }
 
-  has(key: string) {
+  has(key: string): Observable<boolean> {
     return this.localStorage.has(this._key(key))
   }
 
-  set(key: string, value: any) {
-    if(key === 'undefined' || key.length < 1 || /\s/g.test(key) || typeof value === 'undefined' || value === null) throw 'wrong key or value'
+  set(key: string, value: any): Observable<boolean> {
+    if (
+      key === 'undefined' ||
+      key.length < 1 ||
+      /\s/g.test(key) ||
+      typeof value === 'undefined' ||
+      value === null
+    ) throw 'wrong key or value'
     return this.localStorage.setItem(this._key(key), value)
   }
 
-  delete(key: string): void {
-    this.localStorage.removeItem(this._key(key))
+  delete(key: string): Observable<boolean> {
+    return this.localStorage.removeItem(this._key(key))
   }
 
-  deleteAll() {
-    return this.localStorage.keys().pipe(
-      flatMap(key => from(key)),
-      filter(key => this.filterGroup(key)),
-      mergeMap(key => this.localStorage.removeItem(key))
-    )
+  deleteAll(): Observable<boolean> {
+    return this.localStorage
+      .keys()
+      .pipe(
+        flatMap(key => from(key)),
+        filter(key => this._filterGroup(key)),
+        mergeMap(key => this.localStorage.removeItem(key))
+      )
   }
 }

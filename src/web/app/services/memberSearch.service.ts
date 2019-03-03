@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ApiService } from '@services/api.service'
 import { of, from } from 'rxjs'
-import { map, reduce, filter } from 'rxjs/operators'
+import { map, reduce, filter, first } from 'rxjs/operators'
 export interface IMemberSearch {
   name: string;
   id: string;
@@ -13,7 +13,7 @@ export class MemberSearchService {
   constructor(private api: ApiService) {
   }
   search(search?: string, by?: string) {
-    const a = this.api.post('api/test', {test: 'ab'}).subscribe(
+    const a = this.api.post('api/test', {by, search}).pipe(first()).subscribe(
       val => console.log(val)
     )
 

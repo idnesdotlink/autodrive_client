@@ -15,6 +15,7 @@ import {Overlay} from '@angular/cdk/overlay'
   selector: 'color-picker',
   templateUrl: 'color-picker.component.html',
   styleUrls: [ 'color-picker.component.scss' ],
+  preserveWhitespaces: false,
   encapsulation: ViewEncapsulation.None
 })
 export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {

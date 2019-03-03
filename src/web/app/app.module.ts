@@ -7,15 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser'
 import { MinComponentsModule } from '@modules/min-components.module'
 import { AppRoutingModule } from '@modules/app-routing.module'
-import { AuthenticationService } from '@services/authentication.service'
-import { AuthenticationInterceptorService } from '@services/authentication-interceptor.service';
 import { MockRequestInterceptorService } from '@services/mock-request-interceptor.service';
 import { ApiService } from '@services/api.service'
 
+import { ApiTokenInterceptorService } from '@services/apiTokenInterceptor.service';
+import { ApiErrorInterceptorService } from '@services/apiErrorInterceptor.service'
+
 // components
 import { AppRootComponent } from '@components/app-root'
-import { InstallService } from '@services/install.service';
 import { CacheService } from '@services/cache.service'
+import { AuthenticationCacheService } from '@services/authenticationCache.service'
+import { ApiConfigCacheService } from '@services/apiConfigCache.service'
 @NgModule({
   imports: [
     // service-worker
@@ -33,18 +35,18 @@ import { CacheService } from '@services/cache.service'
     AppRootComponent
   ],
   providers: [
-    ApiService,
-    InstallService,
-    CacheService,
-    AuthenticationService,
+    AuthenticationCacheService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: MockRequestInterceptorService, multi: true
+      useClass: ApiErrorInterceptorService, multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthenticationInterceptorService, multi: true
-    }
+      useClass: ApiTokenInterceptorService, multi: true
+    },
+    ApiService,
+    CacheService,
+    ApiConfigCacheService
   ]
 })
 export class AppModule { }

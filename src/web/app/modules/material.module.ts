@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core'
+import { NgModule } from '@angular/core'
 import {
   MatBadgeModule,
   MatBottomSheetModule,
@@ -33,9 +33,9 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
-import {DragDropModule} from '@angular/cdk/drag-drop'
-import {OverlayModule} from '@angular/cdk/overlay'
-import {PortalModule} from '@angular/cdk/portal'
+import { DragDropModule } from '@angular/cdk/drag-drop'
+import { OverlayModule } from '@angular/cdk/overlay'
+import { PortalModule } from '@angular/cdk/portal'
 
 @NgModule({
   imports: [

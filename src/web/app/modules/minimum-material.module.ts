@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core'
+import { NgModule } from '@angular/core'
 import {
   MatButtonModule,
   MatCardModule,
@@ -10,8 +10,8 @@ import {
   MatProgressSpinnerModule,
   MatSnackBarModule,
 } from '@angular/material';
-import {OverlayModule} from '@angular/cdk/overlay'
-import {PortalModule} from '@angular/cdk/portal'
+import { OverlayModule } from '@angular/cdk/overlay'
+import { PortalModule } from '@angular/cdk/portal'
 
 @NgModule({
   imports: [

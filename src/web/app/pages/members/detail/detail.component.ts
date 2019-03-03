@@ -4,13 +4,12 @@ import {Location} from '@angular/common'
 
 // import {Member} from '@interfaces/member';
 import {MembersService} from '@services/members.api.service'
-import {AuthenticationService} from '@services/authentication.service'
 
 @Component({
   selector: 'member-detail',
   templateUrl: 'template.html',
   styleUrls: ['style.scss'],
-  providers: [MembersService, AuthenticationService]
+  providers: [MembersService]
 })
 export class DetailComponent implements OnInit, OnDestroy {
 
@@ -22,7 +21,6 @@ export class DetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private MembersService: MembersService,
     private location: Location,
-    private auth: AuthenticationService,
     private router: Router
   ) { }
 
@@ -40,10 +38,6 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
-  }
-
-  ck() {
-    console.log(this.auth.user_role);
   }
 
   clickBack(e) {

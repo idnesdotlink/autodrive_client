@@ -29,17 +29,11 @@ import { MemberSearch } from '@components/member-search'
   declarations: [
     AppBar,
     AppNav,
-    // BoxPadding,
     ColorPicker,
     ConfirmDialog,
     FilterBox,
     IconFontList,
-    // LogoImage,
-    // LogoLine,
-    // LogoText,
     PageBottomSheet,
-    // PageStandard,
-    // SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
@@ -53,25 +47,17 @@ import { MemberSearch } from '@components/member-search'
     SplitInput,
     SplitInputDirective,
     MemberSearch,
-    // ScrollPadding
   ],
   exports: [
     ThirdPartyModule,
     MinComponentsModule,
-    // components
     AppBar,
     AppNav,
-    // BoxPadding,
     ColorPicker,
     ConfirmDialog,
     FilterBox,
     IconFontList,
-    // LogoImage,
-    // LogoLine,
-    // LogoText,
     PageBottomSheet,
-    // PageStandard,
-    // SnackbarNotification,
     HomeCard,
     SvgSvg,
     TreeViewer,
@@ -85,12 +71,10 @@ import { MemberSearch } from '@components/member-search'
     SplitInput,
     SplitInputDirective,
     MemberSearch,
-    // ScrollPadding
   ],
   entryComponents: [
     ConfirmDialog,
     PageBottomSheet,
-    // SnackbarNotification,
     ExampleOverlay
   ],
   providers: [

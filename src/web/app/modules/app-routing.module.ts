@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router'
 
 // guards
 import { AuthGuard } from '@guards/auth.guard'
-import { CanDeactivateGuard } from '@guards/candeactivate.guard'
 import { InstallGuard } from '@guards/install.guard'
 
 // pages
@@ -40,6 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AuthGuard],
     loadChildren: () => new Promise(
       function (resolve, reject) {
         import(

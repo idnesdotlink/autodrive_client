@@ -1,14 +1,14 @@
-import {NgModule} from '@angular/core'
-import {BaseModule} from '@modules/base.module'
-import {MinimumMaterialModule} from '@modules/minimum-material.module'
+import { NgModule } from '@angular/core'
+import { BaseModule } from '@modules/base.module'
+import { MinimumMaterialModule } from '@modules/minimum-material.module'
 // components
-import {BoxPadding} from '@components/box-padding'
-import {LogoImage} from '@components/logo-image'
-import {LogoLine} from '@components/logo-line'
-import {LogoText} from '@components/logo-text'
-import {PageStandard} from '@components/page-standard'
-import {SnackbarNotification} from '@components/snackbar-notification'
-import {ScrollPadding} from '@components/scroll-padding'
+import { BoxPadding } from '@components/box-padding'
+import { LogoImage } from '@components/logo-image'
+import { LogoLine } from '@components/logo-line'
+import { LogoText } from '@components/logo-text'
+import { PageStandard } from '@components/page-standard'
+import { SnackbarNotification } from '@components/snackbar-notification'
+import { ScrollPadding } from '@components/scroll-padding'
 
 @NgModule({
   imports: [
@@ -43,4 +43,4 @@ import {ScrollPadding} from '@components/scroll-padding'
   providers: [
   ]
 })
-export class MinComponentsModule {}
+export class MinComponentsModule { }

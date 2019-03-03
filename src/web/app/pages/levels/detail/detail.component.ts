@@ -47,10 +47,6 @@ export class DetailComponent implements OnInit {
   }
 
   clickEdit(): void {
-    console.log('click edit');
-    this.api.baseUrl.subscribe(
-      url => console.log(url)
-    )
     // this.router.navigate([`/admin/levels/${this.id}/edit`]);
   }
 

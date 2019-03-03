@@ -1,0 +1,17 @@
+:host {
+  color: white;
+}
+:host mat-form-field {
+  display: block;
+}
+:host mat-checkbox {
+  display: block;
+  padding-bottom: 1.25em;
+}
+:host .action {
+  display: flex;
+  flex-direction: row;
+}
+:host .action .fill {
+  flex: 1;
+}

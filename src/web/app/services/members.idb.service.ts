@@ -20,7 +20,7 @@ export class MemberIdbServices {
           ]
         }
       )
-    .get(IDBService)
+    .get(IDBService);
     this.table = this.db.members
   }
 

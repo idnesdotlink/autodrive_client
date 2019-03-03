@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy, Injectable } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { MemberSearchService, IMemberSearch } from '@services/memberSearch.service'
-import { SubscriptionLike } from 'rxjs'
+import { SubscriptionLike, of } from 'rxjs'
 import { MatPaginatorIntl } from '@angular/material/paginator'
 import { MemberIdbServices } from '@services/members.idb.service'
+import { take } from 'rxjs/operators'
 @Injectable()
 export class LocalIntl extends MatPaginatorIntl {
   constructor() {

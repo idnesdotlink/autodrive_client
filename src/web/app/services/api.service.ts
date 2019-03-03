@@ -1,66 +1,82 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http'
-import {LocalStorage} from '@ngx-pwa/local-storage'
-import {Injectable} from '@angular/core'
-import {OnDestroy} from '@angular/core'
-import {Observable, of, Subject} from 'rxjs'
-import {first, mergeMap, takeUntil, map} from 'rxjs/operators'
-import {config} from '@configs'
-import env from '@environtment'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { throwError, of, from } from 'rxjs'
+import { map, catchError, retry, mergeMap, first } from 'rxjs/operators'
+import { AuthenticationCacheService } from '@services/authenticationCache.service'
+import { ApiConfigCacheService } from '@services/apiConfigCache.service'
+import { Router } from '@angular/router'
 
-interface base {
-  host: string;
+export interface BaseConfig {
   secure: boolean;
-  key: string;
+  host: string;
   port: number;
+  key: string;
 }
+@Injectable(
+  {
+    providedIn: 'root'
+  }
+)
+export class ApiService {
+  constructor(
+    private http: HttpClient,
+    private apiConfig: ApiConfigCacheService,
+    private authCache: AuthenticationCacheService,
+    private router: Router
+  ) { }
 
-interface api {
-  baseUrl: string;
-  endPoint: string[]
-}
-interface conf {
-  base: base;
-  api: api;
-}
+  installed() {
+    return of(true)
+  }
 
-@Injectable()
-export class ApiService implements OnDestroy {
-  private subject$ = new Subject();
-
-  constructor(private http: HttpClient, private storage: LocalStorage) { }
-
-  registry() {}
-
-  get baseUrl() {
-    return this.storage.getItem('config')
-    .pipe(
-      map(
-        (config: base) => {
-          const {host, secure, port} = config;
-          const protocol = secure ? 'https://' : 'http://'
-          const portString = (port === 80) ? '' : `:${port}`
-          return `${protocol}${host}${portString}`
-        }
+  verify(url: string, key: string) {
+    return this.http.post(url, { key })
+      .pipe(
+        catchError(() => of(false)),
+        map(verified => (verified === true))
       )
-    )
   }
 
-  post(endPoint: string, data: any) {
-    const source$ = this.baseUrl
-    return source$.pipe(
-      mergeMap((url: string) => this.http.post(url + '/' +`${endPoint}`, data).pipe(takeUntil(this.subject$)))
-    )
+  install(base: BaseConfig) {
+    const { host, secure, port, key } = base;
+    const url = `${(secure ? 'https' : 'http')}://${host}:${port}`;
+    this.verify(url, key).subscribe()
+    this.apiConfig.url = url;
+    this.apiConfig.key = key;
+    return of(true)
   }
 
-  get() {
+  login(email: string, password: string, url: string) {
+    return this.post('authenticate', { email, password })
+      .pipe(
+        first(),
+        catchError(() => of(null)),
+        mergeMap((token: string) => this.authCache.login(token)),
+        mergeMap(() => from(this.router.navigate([url]))),
+        mergeMap(x => {
+          return (x) ? of(x) : throwError(x)
+        })
+      );
   }
 
-  cancel() {
-    this.subject$.next()
-    this.subject$.complete()
+  logout() {
+    return this.authCache.logout()
   }
 
-  ngOnDestroy() {
-    this.cancel()
+  post(url: string, body: any) {
+    url = `${this.apiConfig.url}/${url}`
+    return this.http.post(url, body, {
+      headers: new HttpHeaders({
+        Accept: 'application/json'
+      })
+    })
+  }
+
+  get authToken() {
+    return this.authCache.authToken
+  }
+
+  get(url: string) {
+    return this.http.get(url)
   }
 }
