@@ -42,8 +42,8 @@ let config = {
   output: {
     path: outputPath,
     publicPath: '',
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js'
+    filename: 'output/[name].js',
+    chunkFilename: 'output/[name].chunk.js'
   },
   module: { rules },
   resolve: {

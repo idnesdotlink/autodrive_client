@@ -6,7 +6,7 @@ import path from 'path';
 
 import config from './config';
 import { backend as port } from '@compiler/common/port';
-import { srcPath } from '@compiler/common/constant'
+import { srcPath, distPath, isWeb, isDev, rootPath, isHMR, webDistPath, electronDistPath } from '@compiler/common/constant'
 
 async function server() {
   return new Promise(
@@ -20,6 +20,8 @@ async function server() {
         host: 'localhost',
         port: port,
         disableHostCheck: true,
+        contentBase: webDistPath,
+        // publicPath: '/output/',
         allowedHosts: ['127.0.0.1, localhost']
       };
 

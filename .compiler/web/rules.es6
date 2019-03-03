@@ -1,7 +1,7 @@
 import path from 'path';
 import Fiber from 'fibers';
 import sass from 'sass';
-import { webSrcPath, isDev, isHMR, nodeModulesPath } from '@compiler/common/constant';
+import { webSrcPath, isDev, isHMR, nodeModulesPath, webDistPath } from '@compiler/common/constant';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const miniCssExtractLoader = { loader: MiniCssExtractPlugin.loader };
@@ -95,10 +95,13 @@ const rules = [
   {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
     use: {
-      loader: 'url-loader',
+      loader: 'file-loader',
       query: {
         limit: 10000,
-        name: 'fonts/[name]--[folder].[ext]'
+        useRelativePath: false,
+        name: 'fonts/[name].[ext]',
+        outputPath: 'output/',
+        publicPath: '/output/'
       }
     }
   }
