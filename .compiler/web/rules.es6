@@ -98,7 +98,7 @@ const rules = [
       loader: 'file-loader',
       query: {
         limit: 10000,
-        useRelativePath: false,
+        useRelativePath: true,
         name: 'fonts/[name].[ext]',
         outputPath: 'output/',
         publicPath: '/output/'

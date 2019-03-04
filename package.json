@@ -8,7 +8,7 @@
   },
   "main": "./dist/electron/main.js",
   "scripts": {
-    "builder": "cross-env DEBUG=electron-builder electron-builder --publish always --config electron-builder.yml",
+    "builder": "cross-env DEBUG=electron-builder electron-builder --publish never --config electron-builder.yml",
     "clean": "cross-env node -r @babel/register .compiler/clean.es6",
     "electron:appimage": "npm run clean && npm run icon:create && npm run electron:build && npm run builder && dist/output/*.AppImage",
     "electron:build": "cross-env NODE_ENV=production node -r @babel/register .compiler/electron/build.es6",

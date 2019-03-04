@@ -79,7 +79,7 @@ spinner.stop();
  * Mac
  */
 spinner.start('build mac icon');
-icongen(path.join(iconSrcDir, 'box.1.svg'), buildPath, mac)
+icongen(path.join(iconSrcDir, 'autodrive.svg'), buildPath, mac)
 .then(() => {
   spinner.succeed('build mac icon success');
 })
@@ -92,7 +92,7 @@ spinner.stop();
  * Windows
  */
 spinner.start('build win icon');
-icongen(path.join(iconSrcDir, 'box.1.svg'), buildPath, win)
+icongen(path.join(iconSrcDir, 'autodrive.svg'), buildPath, win)
 .then(() => {
   spinner.succeed('build win icon success');
 })

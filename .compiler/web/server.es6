@@ -12,8 +12,6 @@ async function server() {
   return new Promise(
     (resolve, reject) => {
 
-      config.entry['client'] = [path.join(srcPath, 'web', 'client.ts')];
-
       const options = {
         hot: true,
         inline: true,
