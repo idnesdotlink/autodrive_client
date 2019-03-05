@@ -1,20 +1,24 @@
-import path from 'path';
-import Fiber from 'fibers';
-import sass from 'sass';
-import { webSrcPath, isDev, isHMR, nodeModulesPath, webDistPath } from '@compiler/common/constant';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path'
+import Fiber from 'fibers'
+import sass from 'sass'
+import ngw from '@ngtools/webpack'
+import { webSrcPath, isDev, isHMR, nodeModulesPath, webDistPath } from '@compiler/common/constant'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-const miniCssExtractLoader = { loader: MiniCssExtractPlugin.loader };
-const sassLoader = { loader: 'sass-loader', options: { implementation: sass, fibers: Fiber, sourceMap: true } };
+const miniCssExtractLoader = {
+  loader: MiniCssExtractPlugin.loader,
+}
+
+const sassLoader = { loader: 'sass-loader', options: { implementation: sass, fibers: Fiber, sourceMap: true } }
 const resolveUrlLoader = {
   loader: 'resolve-url-loader'
 }
 
-const extract = false; // (isDev && isHMR);
+const extract = false; // (isDev && isHMR)
 
-const extractCssLoader = extract ? ['style-loader', 'css-loader'] : [miniCssExtractLoader, 'css-loader'];
-const extractScssLoader = extract ? ['style-loader', 'css-loader', sassLoader] : [miniCssExtractLoader, 'css-loader', sassLoader];
-const extractScssLoaderResolve = extract ? ['style-loader', 'css-loader', resolveUrlLoader, sassLoader] : [miniCssExtractLoader, 'css-loader', resolveUrlLoader, sassLoader];
+const extractCssLoader = extract ? ['style-loader', 'css-loader'] : [miniCssExtractLoader, 'css-loader']
+const extractScssLoader = extract ? ['style-loader', 'css-loader', sassLoader] : [miniCssExtractLoader, 'css-loader', sassLoader]
+const extractScssLoaderResolve = extract ? ['style-loader', 'css-loader', resolveUrlLoader, sassLoader] : [miniCssExtractLoader, 'css-loader', resolveUrlLoader, sassLoader]
 
 const rules = [
   /// EXTRACT CSS START
@@ -96,15 +100,15 @@ const rules = [
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
     use: {
       loader: 'file-loader',
-      query: {
+      options: {
         limit: 10000,
         useRelativePath: true,
-        name: 'fonts/[name].[ext]',
+        name: '[name].[ext]',
         outputPath: 'output/',
-        publicPath: '/output/'
+        publicPath: '../output/'
       }
     }
   }
-];
+]
 
-export default rules;
+export default rules
