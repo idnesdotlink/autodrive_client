@@ -5,8 +5,9 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+const ngw = require('@ngtools/webpack')
 
-import { srcPath, distPath, isWeb, isDev, rootPath, isHMR } from '@compiler/common/constant'
+import { srcPath, distPath, isWeb, isDev, rootPath, isHMR, isAOT } from '@compiler/common/constant'
 import { alias } from '@compiler/common/alias'
 import base from '@compiler/common/base'
 import { htmlwebpack, contextreplacement, webpackdefine, minicssextract, removeTag } from '@compiler/plugins'
@@ -70,6 +71,15 @@ let config = {
     removeTag,
     webpackdefine
   ],
+}
+
+if (isAOT) {
+  config.plugins.push(
+    new ngw.AngularCompilerPlugin({
+      tsConfigPath: tsConfigFile,
+      entryModule: path.join(webSrcPath, 'app', 'app.module#AppModule')
+    })
+  )
 }
 
 if (true) config.plugins.push(minicssextract)

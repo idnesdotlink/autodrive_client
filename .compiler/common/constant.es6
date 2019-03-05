@@ -22,6 +22,7 @@ const isWeb            = (process.env.WEB === 'true') ? true : false;
 const isDev            = (process.env.NODE_ENV !== 'production') ? true : false;
 const isHMR            = (process.env.HMR === 'true') ? true : false;
 const isSw             = (process.env.SW === 'true') ? true : false;
+const isAOT            = (process.env.AOT === 'true') ? true : false;
 
 export {
   electronDistPath,
@@ -38,5 +39,6 @@ export {
   isDev,
   isHMR,
   isWeb,
-  isSw
+  isSw,
+  isAOT
 }

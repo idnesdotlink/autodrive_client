@@ -24,6 +24,7 @@
     "release": "npm run clean && npm run icon:create && npm run electron:build && npm run builder",
     "test": "echo \"Error: no test specified\" && exit 1",
     "web:build": "cross-env NODE_ENV=production WEB=true node -r @babel/register .compiler/web/build.es6",
+    "web:aot": "cross-env NODE_ENV=production AOT=true WEB=true node -r @babel/register .compiler/web/build.es6",
     "web:dev": "cross-env WEB=true HMR=true node -r @babel/register .compiler/web/dev.es6",
     "stat": "node_modules/.bin/webpack-bundle-analyzer dist/web/stats.json"
   },
